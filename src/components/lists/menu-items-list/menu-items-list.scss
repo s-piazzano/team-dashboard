@@ -1,11 +1,12 @@
 
 .items-container {
-
+  height: calc(100% - 260px);
   margin-top: 48px;
 
-  button {
+  a {
     background-color: unset;
     border: none;
+    text-decoration: none;
     width: 100%;
     outline: none;
 
@@ -29,5 +30,30 @@
     font-size: 20px;
     margin-top: 12px;
     color: #9a9b9c;
+    height: 80px;
+
+    &.clicked {
+      background-color: #e1e1e1;
+
+      p {
+        color: #a90926;
+      }
+    }
+
+    
+
   }
+
+  /* NARROW MODE */
+  &.narrow {
+    .menu-item {
+      display: flex;
+      justify-content: center;
+    }
+
+    p {
+      display: none;
+    }
+  }
+
 }
