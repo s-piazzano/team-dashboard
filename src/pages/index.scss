@@ -1,0 +1,35 @@
+
+
+
+.page {
+  position: relative;
+
+  .page-sidebar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+  }
+
+  .page-content {
+  
+  
+    section {
+      margin-left: 280px;
+      height: 400px;
+      width: 100%;
+      border: 2px solid red;
+    }
+  
+    // .section-members {
+      
+    // }
+  
+    // .section-portfolio {
+      
+    // }
+  
+    // .section-blog {
+      
+    // }
+  }
+}

@@ -8,12 +8,6 @@ export const MenuItemsList = ({items = []}) => {
       {items.map((item, i) => 
         <button className="menu-item" key={i}>
           <SvgIcon iconColor='#9a9b9c' iconName={item.icon}></SvgIcon><p className="item-label">{item.name}</p>
-          
-          
-          
-          
-          
-          {/* <li><a href="#" className="icon brands fa-twitter"><span className="label">Twitter</span></a></li> */}   
         </button>
       )}
     </div>

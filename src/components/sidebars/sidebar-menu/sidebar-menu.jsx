@@ -1,10 +1,10 @@
 import React from "react"
 import { FooterSocial } from "../../footer/footer-social/footer-social"
-import { HeaderTitle } from "../../header/header-title/header-title"
-import { MenuItemsList } from "../../lists/menu-items-list/menu-items-list"
 import 'smtp-webcomponents'
 
 import "./sidebar-menu.scss"
+import { MenuItemsList } from "../../lists/menu-items-list/menu-items-list"
+import { HeaderTitle } from "../../header/header-title/header-title"
 
 export const SidebarMenu = () => {
 
@@ -33,14 +33,14 @@ export const SidebarMenu = () => {
 
     return (
       <div className='sidebar-menu'>
-
-          <wc-header-sidebar
+          <HeaderTitle
             logoUrl={logoUrl}
             title={title}
             subtitle={subtitle}
           />
           <MenuItemsList
             items={items}
+            color="#f30e97"
           />
           <FooterSocial />
 
