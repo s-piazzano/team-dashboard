@@ -7,26 +7,31 @@ import './index.scss';
 
 export default function Home() {
 
+  const [sidebarIsOpen, toggleSidebar] = React.useState(false)
+
   return (
     <div className="page">
       {/* <Link to="/about">go to about...</Link> */}
 
       <aside className="page-sidebar">
-        <SidebarMenu />
+        <SidebarMenu
+          sidebarIsOpen={sidebarIsOpen}
+          toggleSidebar={() => toggleSidebar(!sidebarIsOpen)}
+        />
       </aside>
 
-      <main className="page-content">
+      <main className={`page-content ${sidebarIsOpen ? 'expanded' : 'narrow'}`}>
 
-        <section className="section-members">
-        chi siamo
+        <section id="members" className="section-members">
+          chi siamo
         </section>
        
-        <section className="section-portfolio">
-        portfolio
+        <section id="portfolio" className="section-portfolio">
+          portfolio
         </section>
 
-        <section className="section-blog">
-        articoli
+        <section id="blog" className="section-blog">
+          articoli
         </section>
 
       </main>

@@ -5,31 +5,39 @@
   position: relative;
 
   .page-sidebar {
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
   }
 
   .page-content {
-  
-  
+    margin-left: 280px;
+    transition: all ease-out .4s;
+
     section {
-      margin-left: 280px;
-      height: 400px;
+      height: 800px;
       width: 100%;
+
       border: 2px solid red;
     }
   
-    // .section-members {
-      
-    // }
+    .section-members {
+      background-color: teal
+    }
   
-    // .section-portfolio {
-      
-    // }
+    .section-portfolio {
+      background-color: orange
+    }
   
-    // .section-blog {
-      
-    // }
+    .section-blog {
+      background-color: blue
+    }
+
+    &.narrow {
+      margin-left: 80px;
+      transition: all ease-out .4s;
+    }
+
+
   }
 }
