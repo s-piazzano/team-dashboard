@@ -31,6 +31,25 @@ export const SidebarMenu = ({sidebarIsOpen, toggleSidebar}) => {
       }
     ]
 
+    const links = [
+      {
+        icon: 'icon-plus',
+        url: 'https://www.google.come'
+      },
+      {
+        icon: 'icon-plus',
+        url: 'https://www.google.come'
+      },
+      {
+        icon: 'icon-plus',
+        url: 'https://www.google.come'
+      },
+      {
+        icon: 'icon-plus',
+        url: 'https://www.google.come'
+      },
+    ]
+
     return (
       <div className={`sidebar-menu ${sidebarIsOpen ? 'expanded' : 'narrow'}`}>
         <div className={`sidebar-toggle ${sidebarIsOpen ? 'icon-left' : 'icon-right'}`}>
@@ -50,7 +69,11 @@ export const SidebarMenu = ({sidebarIsOpen, toggleSidebar}) => {
           mode={sidebarIsOpen ? 'expanded' : 'narrow'}
           color="#f30e97"
         />
-        <FooterSocial />
+        <FooterSocial
+          iconColor="#a90926"
+          links={links}
+          
+        />
       </div>
     )
 }
