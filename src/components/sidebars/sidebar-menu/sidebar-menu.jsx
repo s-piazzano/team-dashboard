@@ -7,7 +7,7 @@ import { MenuItemsList } from "../../lists/menu-items-list/menu-items-list"
 import { HeaderTitle } from "../../header/header-title/header-title"
 import { SvgIcon } from '../../buttons-indicators/svg-icon/svg-icon';
 
-export const SidebarMenu = ({sidebarIsOpen, toggleSidebar}) => {
+export const SidebarMenu = ({sidebarIsOpen, toggleSidebar, handleSidebarSocialLink}) => {
 
 		const logoUrl = 'https://picsum.photos/300/200';
 		const title = 'RainbowTech';
@@ -69,11 +69,14 @@ export const SidebarMenu = ({sidebarIsOpen, toggleSidebar}) => {
           mode={sidebarIsOpen ? 'expanded' : 'narrow'}
           color="#f30e97"
         />
-        <FooterSocial
-          iconColor="#a90926"
-          links={links}
-          
-        />
+       {sidebarIsOpen
+         ? <FooterSocial
+            iconColor="#a90926"
+            links={links}
+            action={handleSidebarSocialLink}
+          />
+         : null
+        }
       </div>
     )
 }

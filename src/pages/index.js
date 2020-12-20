@@ -9,6 +9,23 @@ export default function Home() {
 
   const [sidebarIsOpen, toggleSidebar] = React.useState(false)
 
+
+  const handleSidebarSocialLink = (url) => {
+
+
+    alert(url)
+
+  }
+
+  // const checkScroll = () => {
+  //   // check current selected item
+  //   // find it in sections
+  //   // find its offset from page start
+  //   // scroll page to match selectedOffset
+  // }
+
+  // checkScroll()
+
   return (
     <div className="page">
       {/* <Link to="/about">go to about...</Link> */}
@@ -17,6 +34,7 @@ export default function Home() {
         <SidebarMenu
           sidebarIsOpen={sidebarIsOpen}
           toggleSidebar={() => toggleSidebar(!sidebarIsOpen)}
+          handleSidebarSocialLink={handleSidebarSocialLink}
         />
       </aside>
 

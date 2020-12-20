@@ -1,17 +1,4 @@
-import React from "react"
-import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon"
-
-export const FooterSocial = ({links, color, action}) => {
-
-  return(
-    <footer >
-      {links.map(link => (
-        <SvgIcon
-          iconName={link.icon}
-          iconColor={color}
-          iconClick={action}
-        />)
-      )}
-    </footer>
-  )
+.footer-social {
+  display: flex;
+  justify-content: space-around;
 }
