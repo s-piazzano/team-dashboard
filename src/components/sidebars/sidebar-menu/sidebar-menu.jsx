@@ -33,20 +33,20 @@ export const SidebarMenu = ({sidebarIsOpen, toggleSidebar, handleSidebarSocialLi
 
     const links = [
       {
-        icon: 'icon-plus',
-        url: 'https://www.google.come'
+        icon: 'icon-github',
+        url: 'https://www.github.com'
       },
       {
-        icon: 'icon-plus',
-        url: 'https://www.google.come'
+        icon: 'icon-linkedin',
+        url: 'https://www.linkedin.com'
       },
       {
-        icon: 'icon-plus',
-        url: 'https://www.google.come'
+        icon: 'icon-stackoverflow',
+        url: 'https://www.stackoverflow.com'
       },
       {
-        icon: 'icon-plus',
-        url: 'https://www.google.come'
+        icon: 'icon-gitlab',
+        url: 'https://www.gitlab.com'
       },
     ]
 
@@ -64,6 +64,13 @@ export const SidebarMenu = ({sidebarIsOpen, toggleSidebar, handleSidebarSocialLi
           subtitle={subtitle}
           mode={sidebarIsOpen ? 'expanded' : 'narrow'}
         />
+        <button className="login" onClick={() => alert('login')}>
+          <SvgIcon
+            iconColor="#e1e1e1"
+            iconName="icon-user-circle-o"
+          />
+          <p className="login-label">LOGIN</p>
+        </button>
         <MenuItemsList
           items={items}
           mode={sidebarIsOpen ? 'expanded' : 'narrow'}
@@ -71,7 +78,7 @@ export const SidebarMenu = ({sidebarIsOpen, toggleSidebar, handleSidebarSocialLi
         />
        {sidebarIsOpen
          ? <FooterSocial
-            iconColor="#a90926"
+            iconColor="#e1e1e1"
             links={links}
             action={handleSidebarSocialLink}
           />
