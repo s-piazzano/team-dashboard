@@ -1,7 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 import { SidebarMenu } from "../components/sidebars/sidebar-menu/sidebar-menu"
-
+import { CardProfile } from "../components/cards/cardProfile/cardProfile";
+import { Card } from "../components/cards/card/card";
 import "../../assets/scss/main.scss";
 import './index.scss';
 
@@ -28,6 +29,7 @@ export default function Home() {
        
         <section id="portfolio" className="section-portfolio">
           portfolio
+          <CardProfile></CardProfile>
         </section>
 
         <section id="blog" className="section-blog">

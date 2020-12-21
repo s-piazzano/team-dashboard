@@ -1,5 +1,6 @@
 import React from "react"
 import './cardProfile.scss';
+import { SvgIcon } from '../../buttons-indicators/svg-icon/svg-icon';
 
 export const CardProfile = () => {
     const imageUrl = 'https://picsum.photos/300/200';
@@ -7,7 +8,7 @@ export const CardProfile = () => {
     const body = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a eros ut massa commodo tristique vitae finibus mi. Interdum et.';
 
     return (
-        <button className="cardProfile">
+        <div className="cardProfile">
             <div className="card-container">
                 <div className="image-container">
                     <img src={imageUrl} alt="pino!" />
@@ -21,14 +22,21 @@ export const CardProfile = () => {
                     </div>
                 </div>
 
-                <div className="btn">
-                    <button>
-                        <a>
-                            View More
-            </a>
-                    </button>
+                <div class="social-container">
+                    <h3>Social Follow</h3>
+                    <div className="social-link">
+                        <a href="" className="social">
+                            <SvgIcon iconName="icon-linkedin" />
+                        </a>
+                        <a href="" className="social">
+                            <SvgIcon iconName="icon-github" />
+                        </a>
+                        <a href="" className="social">
+                            <SvgIcon iconName="icon-gitlab" />
+                        </a>
+                    </div>
                 </div>
             </div>
-        </button>
+        </div>
     )
 }
