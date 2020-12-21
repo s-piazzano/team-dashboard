@@ -11,10 +11,7 @@ export default function Home() {
 
 
   const handleSidebarSocialLink = (url) => {
-
-
-    alert(url)
-
+    window.open(url);
   }
 
   // const checkScroll = () => {
