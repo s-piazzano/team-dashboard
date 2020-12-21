@@ -5,8 +5,9 @@ export const SvgIcon = ({iconName, iconColor, iconClick}) => {
 
   return (
     <svg
+      className={'svg-icon ' + iconName}
       onClick={iconClick}
-      className={iconName} style={{
+      style={{
         fill: iconColor,
         height: '26px',
         width: '26px'

@@ -1,10 +1,11 @@
 .card{
-        
+    cursor: pointer;
     border: unset;
     outline: unset;
     background-color: unset;
 
   .card-container{
+    background-color: #fff;
     width: 300px;
     overflow: hidden;
     box-shadow: 0px 0px 15px -5px;
@@ -52,12 +53,5 @@
   
   .btn button:hover{
     background: rgba(27, 156, 252, 0.1);
-  }
-  
-  a{
-    text-transform: uppercase;
-    color: #189CFC;
-    text-decoration: none;
-    font-weight: bold;
   }
 }

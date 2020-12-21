@@ -1,0 +1,9 @@
+.card-list-container{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+
+	.card-wrapper {
+		padding: 16px;
+	}
+}
