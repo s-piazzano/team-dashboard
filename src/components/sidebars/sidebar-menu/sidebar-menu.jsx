@@ -7,7 +7,7 @@ import { MenuItemsList } from "../../lists/menu-items-list/menu-items-list"
 import { HeaderTitle } from "../../header/header-title/header-title"
 import { SvgIcon } from '../../buttons-indicators/svg-icon/svg-icon';
 
-export const SidebarMenu = ({sidebarIsOpen, toggleSidebar}) => {
+export const SidebarMenu = ({sidebarIsOpen, toggleSidebar, handleSidebarSocialLink}) => {
 
 		const logoUrl = 'https://picsum.photos/300/200';
 		const title = 'RainbowTech';
@@ -31,6 +31,25 @@ export const SidebarMenu = ({sidebarIsOpen, toggleSidebar}) => {
       }
     ]
 
+    const links = [
+      {
+        icon: 'icon-plus',
+        url: 'https://www.google.come'
+      },
+      {
+        icon: 'icon-plus',
+        url: 'https://www.google.come'
+      },
+      {
+        icon: 'icon-plus',
+        url: 'https://www.google.come'
+      },
+      {
+        icon: 'icon-plus',
+        url: 'https://www.google.come'
+      },
+    ]
+
     return (
       <div className={`sidebar-menu ${sidebarIsOpen ? 'expanded' : 'narrow'}`}>
         <div className={`sidebar-toggle ${sidebarIsOpen ? 'icon-left' : 'icon-right'}`}>
@@ -50,7 +69,14 @@ export const SidebarMenu = ({sidebarIsOpen, toggleSidebar}) => {
           mode={sidebarIsOpen ? 'expanded' : 'narrow'}
           color="#f30e97"
         />
-        <FooterSocial />
+       {sidebarIsOpen
+         ? <FooterSocial
+            iconColor="#a90926"
+            links={links}
+            action={handleSidebarSocialLink}
+          />
+         : null
+        }
       </div>
     )
 }
