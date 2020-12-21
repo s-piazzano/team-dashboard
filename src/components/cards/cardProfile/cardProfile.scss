@@ -94,6 +94,8 @@
   }
 
   .social-link{
-    margin: 12px;
+    // margin: 12px;
+    display: flex;
+    justify-content: space-around;
   }
 }

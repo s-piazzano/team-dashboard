@@ -4,8 +4,8 @@ import { SvgIcon } from '../../buttons-indicators/svg-icon/svg-icon';
 
 export const CardProfile = () => {
     const imageUrl = 'https://picsum.photos/300/200';
-    const title = 'NameProfile';
-    const body = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a eros ut massa commodo tristique vitae finibus mi. Interdum et.';
+    const title = 'Tiziano Vitaliani';
+    const body = "I'm a full time developer, specialized in quality assurance and end to end testing with Cypress and Cucumber";
 
     return (
         <div className="cardProfile">
