@@ -1,5 +1,5 @@
 .card{
-        
+    cursor: pointer;
     border: unset;
     outline: unset;
     background-color: unset;
@@ -53,12 +53,5 @@
   
   .btn button:hover{
     background: rgba(27, 156, 252, 0.1);
-  }
-  
-  a{
-    text-transform: uppercase;
-    color: #189CFC;
-    text-decoration: none;
-    font-weight: bold;
   }
 }

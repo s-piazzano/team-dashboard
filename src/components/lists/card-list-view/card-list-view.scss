@@ -1,15 +1,9 @@
 .card-list-container{
-    display: flex;
-    justify-content: space-around;
-    padding: 25px 50px;
-}
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
 
-.MuiGrid-container{
-    display: flex;
-    justify-content: space-around;
-    padding: 25px 50px;
-}
-
-.MuiGrid-item{
-    margin-top: 75px;
+	.card-wrapper {
+		padding: 16px;
+	}
 }
