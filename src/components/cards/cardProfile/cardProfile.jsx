@@ -6,14 +6,17 @@ export const CardProfile = ({
   title,
   description,
   imageUrl,
-  profileLinks = []
+  profileLinks = [],
+  handleSocialLink
 }) => {
   return (
     <div className="cardProfile">
       <div className="card-container">
+
         <div className="image-container">
           <img src={imageUrl} alt="pino!" />
         </div>
+
         <div className="card-content">
           <div className="card-title">
             <h3>{title}</h3>
@@ -25,15 +28,13 @@ export const CardProfile = ({
 
         <div class="social-container">
           <div className="social-link">
-            <a href="" className="social">
-              <SvgIcon iconName="icon-linkedin" />
-            </a>
-            <a href="" className="social">
-              <SvgIcon iconName="icon-github" />
-            </a>
-            <a href="" className="social">
-              <SvgIcon iconName="icon-gitlab" />
-            </a>
+            {profileLinks.map((link, i) => (
+              <SvgIcon 
+                iconName={link.iconName} 
+                key={i} 
+                iconClick={() => handleSocialLink(link.url)} 
+              />
+            ))}
           </div>
         </div>
       </div>

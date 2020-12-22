@@ -16,7 +16,7 @@ export default function Home() {
   const [sidebarIsOpen, toggleSidebar] = React.useState(false)
 
 
-  const handleSidebarSocialLink = (url) => {
+  const handleSocialLink = (url) => {
     window.open(url);
   }
 
@@ -37,7 +37,7 @@ export default function Home() {
         <SidebarMenu
           sidebarIsOpen={sidebarIsOpen}
           toggleSidebar={() => toggleSidebar(!sidebarIsOpen)}
-          handleSidebarSocialLink={handleSidebarSocialLink}
+          handleSidebarSocialLink={handleSocialLink}
         />
       </aside>
 
@@ -47,6 +47,7 @@ export default function Home() {
           chi siamo
           <CardListView
             cards={cardsProfileListMock}
+            handleSocialLink={handleSocialLink}
           />
         </section>
        
@@ -54,6 +55,7 @@ export default function Home() {
           portfolio
           <CardListView
             cards={cardsListMock}
+            handleSocialLink={handleSocialLink}
           />
         </section>
 

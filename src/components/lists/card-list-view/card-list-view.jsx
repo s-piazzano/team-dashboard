@@ -4,16 +4,17 @@ import { Card } from "../../cards/card/card";
 import { CardProfile } from "../../cards/cardProfile/cardProfile";
 import "./card-list-view.scss";
 
-export const CardListView = ({cards = []}) => {
+export const CardListView = ({ cards = [], handleSocialLink }) => {
+	debugger
 	return (
 		<div class="card-list-container">
 			{
-				cards.map(({type, ...rest}, i) => {
+				cards.map(({ type, ...rest }, i) => {
 					return (
 						<div className="card-wrapper" key={i}>
 							{type === 'card'
 								? <Card {...rest} />
-								: <CardProfile {...rest} />}
+								: <CardProfile {...rest} handleSocialLink={handleSocialLink} />}
 						</div>
 					)
 				})
