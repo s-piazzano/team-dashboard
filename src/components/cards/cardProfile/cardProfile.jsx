@@ -23,7 +23,7 @@ export const CardProfile = ({
           </div>
         </div>
 
-        <div class="social-container">
+        <div className="social-container">
           <div className="social-link">
             <a href="" className="social">
               <SvgIcon iconName="icon-linkedin" />

@@ -6,7 +6,7 @@ import "./card-list-view.scss";
 
 export const CardListView = ({cards = []}) => {
 	return (
-		<div class="card-list-container">
+		<div className="card-list-container">
 			{
 				cards.map(({type, ...rest}, i) => {
 					return (
