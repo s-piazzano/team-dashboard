@@ -29,11 +29,13 @@ export const CardProfile = ({
         <div class="social-container">
           <div className="social-link">
             {profileLinks.map((link, i) => (
-              <SvgIcon 
-                iconName={link.iconName} 
-                key={i} 
-                iconClick={() => handleSocialLink(link.url)} 
-              />
+              <div className="social">
+                <SvgIcon
+                  iconName={link.iconName}
+                  key={i}
+                  iconClick={() => handleSocialLink(link.url)}
+                />
+              </div>
             ))}
           </div>
         </div>
