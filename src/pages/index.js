@@ -11,7 +11,7 @@ export default function Home() {
   const [sidebarIsOpen, toggleSidebar] = React.useState(false)
 
 
-  const handleSidebarSocialLink = (url) => {
+  const handleSocialLink = (url) => {
     window.open(url);
   }
 
@@ -33,9 +33,11 @@ export default function Home() {
         <SidebarMenu
           className="section-sidebar"
           sidebarIsOpen={sidebarIsOpen}
-          handleSidebarSocialLink={handleSidebarSocialLink}
+          handleSidebarSocialLink={handleSocialLink}
         />
-        <SinglePageContainer />
+        <SinglePageContainer
+          handleSocialLink={handleSocialLink}
+        />
       </LayoutWithSidebar>
 
     </div>

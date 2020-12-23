@@ -10,7 +10,8 @@ export const SvgIcon = ({iconName, iconColor, iconClick}) => {
       style={{
         fill: iconColor,
         height: '26px',
-        width: '26px'
+        width: '26px',
+        cursor: 'pointer'
       }}
     >
       <use href={`${svgSprite}#${iconName}`}></use>
