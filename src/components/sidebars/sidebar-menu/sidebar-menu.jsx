@@ -52,12 +52,6 @@ export const SidebarMenu = ({sidebarIsOpen, toggleSidebar, handleSidebarSocialLi
 
     return (
       <div className={`sidebar-menu ${sidebarIsOpen ? 'expanded' : 'narrow'}`}>
-        <div className={`sidebar-toggle ${sidebarIsOpen ? 'icon-left' : 'icon-right'}`}>
-          <SvgIcon
-            iconName="icon-arrow-circle-right"
-            iconClick={toggleSidebar}
-          />
-        </div>
         <HeaderTitle
           logoUrl={logoUrl}
           title={title}

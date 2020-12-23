@@ -1,43 +1,22 @@
-
-
-
 .page {
   position: relative;
 
-  .page-sidebar {
-    position: fixed;
-    top: 0px;
-    left: 0px;
+  section {
+    height: 800px;
+    width: 100%;
+    overflow: auto;
+    padding: 20px 0px;
   }
 
-  .page-content {
-    margin-left: 280px;
-    transition: all ease-out .4s;
+  .section-members {
+    background-color: #e9e9e9
+  }
 
-    section {
-      height: 800px;
-      width: 100%;
-      overflow: auto;
-      padding: 20px 0px;
-    }
-  
-    .section-members {
-      background-color: #e9e9e9
-    }
-  
-    .section-portfolio {
-      background-color: #fff
-    }
-  
-    .section-blog {
-      background-color: #e9e9e9
-    }
+  .section-portfolio {
+    background-color: #fff
+  }
 
-    &.narrow {
-      margin-left: 80px;
-      transition: all ease-out .4s;
-    }
-
-
+  .section-blog {
+    background-color: #e9e9e9
   }
 }

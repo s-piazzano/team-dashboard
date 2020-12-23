@@ -1,10 +1,21 @@
 import React, { Children } from "react"
+import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon"
 
-export const LayoutWithSidebar = ({children, sidebarIsOpen = false}) => {
+import './layout-with-sidebar.scss';
+
+export const LayoutWithSidebar = ({children, sidebarIsOpen, layoutAction}) => {
 
   const renderSidebar = (child) => {
     return (
-      <aside className="page-sidebar">{child}</aside>
+      <aside className={`sidebar-container ${sidebarIsOpen ? 'expanded' : 'narrow'}`}>
+        <div className={`sidebar-toggle ${sidebarIsOpen ? 'icon-left' : 'icon-right'}`}>
+          <SvgIcon
+            iconName="icon-arrow-circle-right"
+            iconClick={layoutAction}
+          />
+        </div>
+          {child}
+      </aside>
     )
   }
 
@@ -16,13 +27,12 @@ export const LayoutWithSidebar = ({children, sidebarIsOpen = false}) => {
     )
   }
 
-
   return (
     <div className="layout">
       {Children.map(children, child => {
 
         return (
-          child.props.className === 'page-sidebar'
+          child.props.className === 'section-sidebar'
             ? renderSidebar(child)
             : renderContent(child)
         );
