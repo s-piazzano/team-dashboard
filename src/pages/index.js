@@ -43,6 +43,20 @@ export default function Home() {
 
       <main className={`page-content ${sidebarIsOpen ? 'expanded' : 'narrow'}`}>
 
+        <section id="home" className="section-home">
+          <div className="home-title">
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
+          </div>
+          <div className="home-content">
+            <p>Quisque id lacus vitae nulla luctus dapibus. Praesent libero tellus, interdum in est ut, volutpat ultrices lorem. Nunc eget mattis odio. Sed ac augue nec
+            </p>
+          </div>
+          <div className="home-button">
+            <button>VIEW MORE</button>
+          </div>
+
+        </section>
+
         <section id="members" className="section-members">
           chi siamo
           <CardListView
@@ -50,7 +64,7 @@ export default function Home() {
             handleSocialLink={handleSocialLink}
           />
         </section>
-       
+
         <section id="portfolio" className="section-portfolio">
           portfolio
           <CardListView

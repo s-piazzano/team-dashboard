@@ -5,7 +5,6 @@ import { CardProfile } from "../../cards/cardProfile/cardProfile";
 import "./card-list-view.scss";
 
 export const CardListView = ({ cards = [], handleSocialLink }) => {
-	debugger
 	return (
 		<div class="card-list-container">
 			{
