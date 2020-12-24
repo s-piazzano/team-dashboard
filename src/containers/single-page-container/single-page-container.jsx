@@ -22,7 +22,7 @@ export const SinglePageContainer = ({handleSocialLink}) => {
       </section>
 
       <section id="members" className="section-members">
-        chi siamo
+        <h2>Chi siamo</h2>
         <CardListView
           cards={cardsProfileListMock}
           handleSocialLink={handleSocialLink}
