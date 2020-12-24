@@ -2,11 +2,11 @@
 import React from 'react';
 import { CardListView } from '../../components/lists/card-list-view/card-list-view';
 import { cardsListMock, cardsProfileListMock } from '../../components/lists/card-list-view/card-list-view.mock';
-
+import { HeaderSection } from "../../components/header/header-section/header-section";
 import './single-page-container.scss';
 
-export const SinglePageContainer = ({handleSocialLink}) => {
-  return(
+export const SinglePageContainer = ({ handleSocialLink }) => {
+  return (
     <div>
       <section id="home" className="section-home">
         <div className="home-title">
@@ -22,15 +22,21 @@ export const SinglePageContainer = ({handleSocialLink}) => {
       </section>
 
       <section id="members" className="section-members">
-        <h2>Chi siamo</h2>
+        <HeaderSection title="Chi Siamo"
+          description="Duis pretium pulvinar dui ut ultricies. Proin imperdiet pulvinar ante, ac rhoncus velit accumsan eget. Nulla faucibus nibh id odio ornare"
+        >
+        </HeaderSection>
         <CardListView
           cards={cardsProfileListMock}
           handleSocialLink={handleSocialLink}
         />
       </section>
-    
+
       <section id="portfolio" className="section-portfolio">
-        portfolio
+        <HeaderSection title="Portfolio"
+          description="Duis pretium pulvinar dui ut ultricies. Proin imperdiet pulvinar ante, ac rhoncus velit accumsan eget. Nulla faucibus nibh id odio ornare"
+        >
+        </HeaderSection>
         <CardListView
           cards={cardsListMock}
           handleSocialLink={handleSocialLink}
