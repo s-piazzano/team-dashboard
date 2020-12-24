@@ -39,7 +39,6 @@ export default function Home() {
           handleSocialLink={handleSocialLink}
         />
       </LayoutWithSidebar>
-
     </div>
   )
 }
