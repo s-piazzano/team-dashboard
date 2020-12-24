@@ -3,6 +3,8 @@ import React from 'react';
 import { CardListView } from '../../components/lists/card-list-view/card-list-view';
 import { cardsListMock, cardsProfileListMock } from '../../components/lists/card-list-view/card-list-view.mock';
 
+import './single-page-container.scss';
+
 export const SinglePageContainer = ({handleSocialLink}) => {
   return(
     <div>
