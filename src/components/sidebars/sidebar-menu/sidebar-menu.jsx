@@ -7,29 +7,16 @@ import { MenuItemsList } from "../../lists/menu-items-list/menu-items-list"
 import { HeaderTitle } from "../../header/header-title/header-title"
 import { SvgIcon } from '../../buttons-indicators/svg-icon/svg-icon';
 
-export const SidebarMenu = ({sidebarIsOpen, toggleSidebar, handleSidebarSocialLink}) => {
+export const SidebarMenu = ({
+  items,
+  sidebarIsOpen,
+  handleSidebarSocialLink,
+  handleMenuSelection
+}) => {
 
 		const logoUrl = 'https://picsum.photos/300/200';
 		const title = 'RainbowTech';
 		const subtitle = 'Where code happens';
-
-		const items = [
-			{
-				name: 'Chi siamo',
-        icon: 'icon-group',
-        value: 'members'
-      },
-      {
-				name: 'Portfolio',
-        icon: 'icon-flask',
-        value: 'portfolio'
-      },
-      {
-				name: 'Utlimi articoli',
-        icon: 'icon-coffee',
-        value: 'blog'
-      }
-    ]
 
     const links = [
       {
@@ -58,7 +45,7 @@ export const SidebarMenu = ({sidebarIsOpen, toggleSidebar, handleSidebarSocialLi
           subtitle={subtitle}
           mode={sidebarIsOpen ? 'expanded' : 'narrow'}
         />
-        <button className="login" onClick={() => alert('login')}>
+        <button className="login" onClick={() => alert('login')}> {/* // TODO this will open a dialog to perform login. Login will enable more page options */}
           <SvgIcon
             iconColor="#e1e1e1"
             iconName="icon-user-circle-o"
@@ -67,6 +54,7 @@ export const SidebarMenu = ({sidebarIsOpen, toggleSidebar, handleSidebarSocialLi
         </button>
         <MenuItemsList
           items={items}
+          action={handleMenuSelection}
           mode={sidebarIsOpen ? 'expanded' : 'narrow'}
           color="#f30e97"
         />
