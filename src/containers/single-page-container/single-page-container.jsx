@@ -44,7 +44,13 @@ export const SinglePageContainer = ({ handleSocialLink }) => {
       </section>
 
       <section id="blog" className="section-blog">
-        articoli
+        <HeaderSection title="Blog"
+            description="Duis pretium pulvinar dui ut ultricies. Proin imperdiet pulvinar ante, ac rhoncus velit accumsan eget. Nulla faucibus nibh id odio ornare"
+        ></HeaderSection>
+        <CardListView
+          cards={cardsListMock}
+          handleSocialLink={handleSocialLink}
+        />
       </section>
     </div>
   )
