@@ -1,9 +1,14 @@
 import React from "react"
 import './card.scss';
 
-export const Card = ({title, description, imageUrl}) => {
+export const Card = ({title, description, imageUrl, projectUrl}) => {
+
+  const handleProjectLink = () => {
+    window.open(projectUrl);
+  }
+
   return (
-    <button className="card">
+    <button className="card" onClick={handleProjectLink}>
       <div className="card-container">
         <div className="image-container">
           <img src={imageUrl} alt={title} />
