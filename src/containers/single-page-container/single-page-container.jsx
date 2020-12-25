@@ -51,28 +51,24 @@ export const SinglePageContainer = ({
   const focusSection = () => {
     switch(selectedSection.value) {
       case 'home': {
-        console.log('@ home');
         if(homeRef.current) {
           homeRef.current.scrollIntoView(/* {behavior: "smooth"} */)
         }
       }
         break;
       case 'members': {
-        console.log('@ members');
         if(membersRef.current) {
           membersRef.current.scrollIntoView(/* {behavior: "smooth"} */)
         }
       }
         break;
       case 'portfolio': {
-        console.log('@ portfolio');
         if(portfolioRef.current) {
           portfolioRef.current.scrollIntoView(/* {behavior: "smooth"} */)
         }
       }
         break;
       case 'blog': {
-        console.log('@ blog');
         if(blogRef.current) {
           blogRef.current.scrollIntoView(/* {behavior: "smooth"} */)
         }
