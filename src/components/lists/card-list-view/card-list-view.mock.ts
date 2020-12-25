@@ -11,7 +11,7 @@ export const cardsListMock = [
     title: 'SMTP WebComponents',
     description: "Vuoi creare un sito web utilizzando web components ma non sai da dove iniziare? RainbowTech ti viene in aiuto con la sua libreria di web components. Essa include StoryBook, un potente strumento attraverso il quale si puo avere un'anteprima di ogni singolo componente",
     imageUrl: 'https://picsum.photos/300/200',
-    projectUrl: 'www.github.com',
+    projectUrl: 'https://gitlab.com/MarcoTerzolo/smtp-components.git',
   }
 ]
 
