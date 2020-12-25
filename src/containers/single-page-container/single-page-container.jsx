@@ -10,10 +10,10 @@ export const SinglePageContainer = ({ handleSocialLink }) => {
     <div>
       <section id="home" className="section-home">
         <div className="home-title">
-          <h2>Lorem ipsum dolor sit amet, consectetur adipiscing</h2>
+          <h2>Supera te stesso e supererai il mondo</h2>
         </div>
         <div className="home-content">
-          <p>Quisque id lacus vitae nulla luctus dapibus. Praesent libero tellus, interdum in est ut, volutpat ultrices lorem. Nunc eget mattis odio. Sed ac augue nec
+          <p>Non soffocare la tua ispirazione e la tua immaginazione, non diventare lo schiavo del tuo modello
           </p>
         </div>
         <div className="home-button">
@@ -23,7 +23,7 @@ export const SinglePageContainer = ({ handleSocialLink }) => {
 
       <section id="members" className="section-members">
         <HeaderSection title="Chi Siamo"
-          description="Duis pretium pulvinar dui ut ultricies. Proin imperdiet pulvinar ante, ac rhoncus velit accumsan eget. Nulla faucibus nibh id odio ornare"
+          description="RainbowTech nasce da un gruppo di amici che condividono la passione per l'informatica e la voglia di sperimentare nuove tecnologie con l'obiettivo di apprendere e migliorare nuove competenze"
         >
         </HeaderSection>
         <CardListView
@@ -34,7 +34,7 @@ export const SinglePageContainer = ({ handleSocialLink }) => {
 
       <section id="portfolio" className="section-portfolio">
         <HeaderSection title="Portfolio"
-          description="Duis pretium pulvinar dui ut ultricies. Proin imperdiet pulvinar ante, ac rhoncus velit accumsan eget. Nulla faucibus nibh id odio ornare"
+          description="C'è vero progresso solo quando i vantaggi di una nuova tecnologia diventano per tutti"
         >
         </HeaderSection>
         <CardListView
@@ -45,7 +45,7 @@ export const SinglePageContainer = ({ handleSocialLink }) => {
 
       <section id="blog" className="section-blog">
         <HeaderSection title="Blog"
-            description="Duis pretium pulvinar dui ut ultricies. Proin imperdiet pulvinar ante, ac rhoncus velit accumsan eget. Nulla faucibus nibh id odio ornare"
+            description="Il maggior piacere nel fare qualcosa di nuovo sta nel pensiero di poterlo condividere"
         ></HeaderSection>
         <CardListView
           cards={cardsListMock}
