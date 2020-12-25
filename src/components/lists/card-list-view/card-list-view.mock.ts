@@ -2,14 +2,14 @@ export const cardsListMock = [
   {
     type: 'card',
     title: 'Dattilo',
-    description: 'Quanto sei bravo a scrivere al PC? Scoprilo attraverso Dattilo, la nostra WebApp sviluppata interamente tramite web component',
+    description: "Quanto sei bravo a scrivere al PC? Scoprilo attraverso Dattilo, la nostra WebApp sviluppata interamente tramite web component. Quest'app include una suite di test end to end nonchè un processo di continuous integration, il tutto garantisce qualità del software",
     imageUrl: 'https://lh3.googleusercontent.com/proxy/lVSouH9ZMJVyJSmQUZaUgbUJGILyrMOO8dwVX7NIxL63AWZ3t3hCkALyA9W0UWbpeiXEeRfVu34LnZXaqh974YsuxVZpqVCYczjj2MDOAJU1IZzeICbPnJAlKTdnwXbbcNkc',
     projectUrl: 'https://dattilo.netlify.app/',
   },
   {
     type: 'card',
-    title: 'title 2',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a eros ut massa commodo tristique vitae finibus mi. Interdum et.',
+    title: 'SMTP WebComponents',
+    description: "Vuoi creare un sito web utilizzando web components ma non sai da dove iniziare? RainbowTech ti viene in aiuto con la sua libreria di web components. Essa include StoryBook, un potente strumento attraverso il quale si puo avere un'anteprima di ogni singolo componente",
     imageUrl: 'https://picsum.photos/300/200',
     projectUrl: 'www.github.com',
   }

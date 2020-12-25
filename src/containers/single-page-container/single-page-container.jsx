@@ -6,6 +6,7 @@ import { HeaderSection } from "../../components/header/header-section/header-sec
 import './single-page-container.scss';
 
 export const SinglePageContainer = ({ handleSocialLink }) => {
+
   return (
     <div>
       <section id="home" className="section-home">
