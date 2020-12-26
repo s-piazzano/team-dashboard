@@ -6,12 +6,12 @@ import './single-page-container.scss';
 
 export const SinglePageContainer = ({
   handleSocialLink,
-  selectedSection,
   handleScroll,
   items
 }) => {
 
   const sectionRefs = React.useRef([])
+  const selectedSection = items.find(item => item.isSelected)
 
   const scrollHandler = () => {
     
@@ -39,44 +39,26 @@ export const SinglePageContainer = ({
       }
     })
     
+    // calculate target section that is now focused
+    // skipping render if section is teh same as before
     sectionHeightsMapping.forEach(currentSection => {
       if(window.pageYOffset + 300 >= currentSection.min && window.pageYOffset + 300 <= currentSection.max ) {
-        if(currentSection.value !== selectedSection.value ) {
+        if(currentSection.value !== selectedSection.value) {
           handleScroll(currentSection.value)
         }
       }
     })
   }
 
+  /**
+   * Catch selected item ref and scroll to its position
+   */
   const focusSection = () => {
-    switch(selectedSection.value) {
-      case 'home': {
-        if(sectionRefs.current[0]) {
-          sectionRefs.current[0].scrollIntoView(/* {behavior: "smooth"} */)
-        }
+    items.forEach((item, i) => {
+      if(item.isSelected) {
+        sectionRefs.current[i].scrollIntoView(/* {behavior: "smooth"} */)
       }
-        break;
-      case 'members': {
-        if(sectionRefs.current[1]) {
-          sectionRefs.current[1].scrollIntoView(/* {behavior: "smooth"} */)
-        }
-      }
-        break;
-      case 'portfolio': {
-        if(sectionRefs.current[2]) {
-          sectionRefs.current[2].scrollIntoView(/* {behavior: "smooth"} */)
-        }
-      }
-        break;
-      case 'blog': {
-        if(sectionRefs.current[3]) {
-          sectionRefs.current[3].scrollIntoView(/* {behavior: "smooth"} */)
-        }
-      };
-        break;
-  
-      default: console.log('DEFAULT @ SinglePageContainer')
-    }
+    })
   }
 
 

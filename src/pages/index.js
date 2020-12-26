@@ -43,7 +43,6 @@ export default function Home() {
         />
         <SinglePageContainer
           items={items}
-          selectedSection={items.find(item => item.isSelected)}
           handleScroll={handleMenuSelection}
           handleSocialLink={handleSocialLink}
         />
