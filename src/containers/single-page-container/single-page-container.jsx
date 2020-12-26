@@ -11,37 +11,35 @@ export const SinglePageContainer = ({
   items
 }) => {
 
-
-
-
   const sectionRefs = React.useRef([])
 
   const scrollHandler = () => {
     
-    const sectionMapping = [
-      {
-        value: 'home',
-        min: 0,
-        max: sectionRefs.current[0].offsetHeight
-      },
-      {
-        value: 'members',
-        min: sectionRefs.current[0].offsetHeight,
-        max: sectionRefs.current[1].offsetHeight + sectionRefs.current[0].offsetHeight
-      },
-      {
-        value: 'portfolio',
-        min: sectionRefs.current[1].offsetHeight + sectionRefs.current[0].offsetHeight,
-        max: sectionRefs.current[2].offsetHeight + sectionRefs.current[1].offsetHeight + sectionRefs.current[0].offsetHeight
-      },
-      {
-        value: 'blog',
-        min: sectionRefs.current[2].offsetHeight + sectionRefs.current[1].offsetHeight + sectionRefs.current[0].offsetHeight,
-        max: sectionRefs.current[3].offsetHeight + sectionRefs.current[2].offsetHeight + sectionRefs.current[1].offsetHeight + sectionRefs.current[0].offsetHeight
-      },
-    ]
+    const sectionHeightsMapping = items.map((item, index) => {
 
-    sectionMapping.forEach(currentSection => {
+      // get only section heights for current or previous sections
+      const sectionsHeights = new Array(index + 1).fill(0).map((_, i) => sectionRefs.current[i].offsetHeight)
+      
+      // sum heights to get upper boundary
+      const max = sectionsHeights.reduce((acc, curr) => acc + curr, 0)
+
+      // exclude first iteration where lower boundary is zero, then remove current item height
+      if(index !== 0) {
+        sectionsHeights.pop()
+      };
+
+      // sum all heights excepts current to get lower boundary
+      const min = index === 0 ? 0 : sectionsHeights.reduce((acc, curr) => acc + curr, 0)
+
+      // push to array the new object data
+      return {
+        value: item.value,
+        min,
+        max
+      }
+    })
+    
+    sectionHeightsMapping.forEach(currentSection => {
       if(window.pageYOffset + 300 >= currentSection.min && window.pageYOffset + 300 <= currentSection.max ) {
         if(currentSection.value !== selectedSection.value ) {
           handleScroll(currentSection.value)
