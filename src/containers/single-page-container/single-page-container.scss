@@ -35,7 +35,22 @@
 .home-button{
   text-align:center;
   padding: 50px;
+
   button{
-    padding: 0.75em 2.5em 0.75em 2.5em
+    padding: 0.75em 2.5em 0.75em 2.5em;
+    background: transparent;
+    color: white;
+    border: 1px solid;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+  button:hover{
+    color: black;
+    background-color: #fff;
+  }
+
+  button:focus{
+    outline: none;
   }
 }
