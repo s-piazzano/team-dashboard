@@ -40,7 +40,7 @@ export const SinglePageContainer = ({
     ]
 
     sectionMapping.forEach(currentSection => {
-      if(window.pageYOffset + 200 >= currentSection.min && window.pageYOffset + 200 <= currentSection.max ) {
+      if(window.pageYOffset + 300 >= currentSection.min && window.pageYOffset + 300 <= currentSection.max ) {
         if(currentSection.value !== selectedSection.value ) {
           handleScroll(currentSection.value)
         }

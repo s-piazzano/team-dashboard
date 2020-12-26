@@ -3,7 +3,7 @@ export const cardsListMock = [
     type: 'card',
     title: 'Dattilo',
     description: "Quanto sei bravo a scrivere al PC? Scoprilo attraverso Dattilo, la nostra WebApp sviluppata interamente tramite web component. Quest'app include una suite di test end to end nonchè un processo di continuous integration, il tutto garantisce qualità del software",
-    imageUrl: 'https://lh3.googleusercontent.com/proxy/lVSouH9ZMJVyJSmQUZaUgbUJGILyrMOO8dwVX7NIxL63AWZ3t3hCkALyA9W0UWbpeiXEeRfVu34LnZXaqh974YsuxVZpqVCYczjj2MDOAJU1IZzeICbPnJAlKTdnwXbbcNkc',
+    imageUrl: 'https://picsum.photos/300/200',
     projectUrl: 'https://dattilo.netlify.app/',
   },
   {

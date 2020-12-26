@@ -9,6 +9,7 @@ import { SvgIcon } from '../../buttons-indicators/svg-icon/svg-icon';
 
 export const SidebarMenu = ({
   items,
+  links,
   sidebarIsOpen,
   handleSidebarSocialLink,
   handleMenuSelection
@@ -18,24 +19,7 @@ export const SidebarMenu = ({
 		const title = 'RainbowTech';
 		const subtitle = 'Where code happens';
 
-    const links = [
-      {
-        icon: 'icon-github',
-        url: 'https://www.github.com'
-      },
-      {
-        icon: 'icon-linkedin',
-        url: 'https://www.linkedin.com'
-      },
-      {
-        icon: 'icon-stackoverflow',
-        url: 'https://www.stackoverflow.com'
-      },
-      {
-        icon: 'icon-gitlab',
-        url: 'https://www.gitlab.com'
-      },
-    ]
+    
 
     return (
       <div className={`sidebar-menu ${sidebarIsOpen ? 'expanded' : 'narrow'}`}>
