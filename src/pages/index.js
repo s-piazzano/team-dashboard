@@ -1,4 +1,6 @@
 import React from "react"
+import { StaticQuery, graphql } from 'gatsby';
+
 import { SidebarMenu } from "../components/sidebars/sidebar-menu/sidebar-menu"
 
 import { LayoutWithSidebar } from "../components/layouts/layout-with-sidebar/layout-with-sidebar";
@@ -8,7 +10,7 @@ import { menuItems, links } from "./index.model";
 import "../../assets/scss/main.scss";
 import './index.scss';
 
-export default function Home() {
+export default function Home(data) {
 
   const [items, updateMenuSelection] = React.useState(menuItems)
   const [sidebarIsOpen, toggleSidebar] = React.useState(false)
@@ -50,3 +52,4 @@ export default function Home() {
     </div>
   )
 }
+

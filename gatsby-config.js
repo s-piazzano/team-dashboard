@@ -4,21 +4,14 @@ module.exports = {
   /* Your site config here */
   plugins: [
     {
-      resolve: "gatsby-plugin-firebase",
+      resolve: `gatsby-source-strapi`,
       options: {
-        credentials: {
-          apiKey: process.env.apiKey,
-          authDomain: process.env.authDomain,
-          databaseURL: process.env.databaseURL,
-          projectId: process.env.projectId,
-          storageBucket: process.env.storageBucket,
-          messagingSenderId: process.env.messagingSenderId,
-          appId: process.env.appId
-        },
-        features: {
-          firestore: true
-        }
-      }
+        apiURL: process.env.API_URL,
+        queryLimit: 1000, // Default to 100
+        contentTypes: [
+          `article`
+        ]  
+      },
     },
     `gatsby-plugin-sass`,
     {
