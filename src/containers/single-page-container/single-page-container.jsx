@@ -7,35 +7,37 @@ import './single-page-container.scss';
 export const SinglePageContainer = ({
   handleSocialLink,
   selectedSection,
-  handleScroll
+  handleScroll,
+  items
 }) => {
 
-  const homeRef = React.useRef()
-  const membersRef = React.useRef()
-  const portfolioRef = React.useRef()
-  const blogRef = React.useRef()
+
+
+
+  const sectionRefs = React.useRef([])
 
   const scrollHandler = () => {
+    
     const sectionMapping = [
       {
         value: 'home',
         min: 0,
-        max: homeRef.current.offsetHeight
+        max: sectionRefs.current[0].offsetHeight
       },
       {
         value: 'members',
-        min: homeRef.current.offsetHeight,
-        max: membersRef.current.offsetHeight + homeRef.current.offsetHeight
+        min: sectionRefs.current[0].offsetHeight,
+        max: sectionRefs.current[1].offsetHeight + sectionRefs.current[0].offsetHeight
       },
       {
         value: 'portfolio',
-        min: membersRef.current.offsetHeight + homeRef.current.offsetHeight,
-        max: portfolioRef.current.offsetHeight + membersRef.current.offsetHeight + homeRef.current.offsetHeight
+        min: sectionRefs.current[1].offsetHeight + sectionRefs.current[0].offsetHeight,
+        max: sectionRefs.current[2].offsetHeight + sectionRefs.current[1].offsetHeight + sectionRefs.current[0].offsetHeight
       },
       {
         value: 'blog',
-        min: portfolioRef.current.offsetHeight + membersRef.current.offsetHeight + homeRef.current.offsetHeight,
-        max: blogRef.current.offsetHeight + portfolioRef.current.offsetHeight + membersRef.current.offsetHeight + homeRef.current.offsetHeight
+        min: sectionRefs.current[2].offsetHeight + sectionRefs.current[1].offsetHeight + sectionRefs.current[0].offsetHeight,
+        max: sectionRefs.current[3].offsetHeight + sectionRefs.current[2].offsetHeight + sectionRefs.current[1].offsetHeight + sectionRefs.current[0].offsetHeight
       },
     ]
 
@@ -51,26 +53,26 @@ export const SinglePageContainer = ({
   const focusSection = () => {
     switch(selectedSection.value) {
       case 'home': {
-        if(homeRef.current) {
-          homeRef.current.scrollIntoView(/* {behavior: "smooth"} */)
+        if(sectionRefs.current[0]) {
+          sectionRefs.current[0].scrollIntoView(/* {behavior: "smooth"} */)
         }
       }
         break;
       case 'members': {
-        if(membersRef.current) {
-          membersRef.current.scrollIntoView(/* {behavior: "smooth"} */)
+        if(sectionRefs.current[1]) {
+          sectionRefs.current[1].scrollIntoView(/* {behavior: "smooth"} */)
         }
       }
         break;
       case 'portfolio': {
-        if(portfolioRef.current) {
-          portfolioRef.current.scrollIntoView(/* {behavior: "smooth"} */)
+        if(sectionRefs.current[2]) {
+          sectionRefs.current[2].scrollIntoView(/* {behavior: "smooth"} */)
         }
       }
         break;
       case 'blog': {
-        if(blogRef.current) {
-          blogRef.current.scrollIntoView(/* {behavior: "smooth"} */)
+        if(sectionRefs.current[3]) {
+          sectionRefs.current[3].scrollIntoView(/* {behavior: "smooth"} */)
         }
       };
         break;
@@ -96,7 +98,7 @@ export const SinglePageContainer = ({
 
   return(
     <div>
-      <section ref={homeRef} id="home" className="section-home">
+      <section ref={ref => sectionRefs.current[0] = ref} id="home" className="section-home">
         <div className="home-title">
           <h2>Supera te stesso e supererai il mondo</h2>
         </div>
@@ -109,7 +111,7 @@ export const SinglePageContainer = ({
         </div>
       </section>
 
-      <section ref={membersRef} id="members" className="section-members">
+      <section ref={ref => sectionRefs.current[1] = ref} id="members" className="section-members">
         <HeaderSection title="Chi Siamo"
           description="RainbowTech nasce da un gruppo di amici che condividono la passione per l'informatica e la voglia di sperimentare nuove tecnologie con l'obiettivo di apprendere e migliorare nuove competenze"
         >
@@ -120,7 +122,7 @@ export const SinglePageContainer = ({
         />
       </section>
 
-      <section ref={portfolioRef} id="portfolio" className="section-portfolio">
+      <section ref={ref => sectionRefs.current[2] = ref} id="portfolio" className="section-portfolio">
         <HeaderSection title="Portfolio"
           description="C'è vero progresso solo quando i vantaggi di una nuova tecnologia diventano per tutti"
         >
@@ -131,7 +133,7 @@ export const SinglePageContainer = ({
         />
       </section>
 
-      <section ref={blogRef} id="blog" className="section-blog">
+      <section ref={ref => sectionRefs.current[3] = ref} id="blog" className="section-blog">
         <HeaderSection title="Blog"
             description="Il maggior piacere nel fare qualcosa di nuovo sta nel pensiero di poterlo condividere"
         ></HeaderSection>
