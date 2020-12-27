@@ -11,7 +11,6 @@ import "../../assets/scss/main.scss";
 import './index.scss';
 
 export default function Home(data) {
-
   const [items, updateMenuSelection] = React.useState(menuItems)
   const [sidebarIsOpen, toggleSidebar] = React.useState(false)
 
