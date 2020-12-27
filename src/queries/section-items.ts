@@ -1,26 +1,36 @@
-export const getMenuItemsQuery = () => ([
+import { cardsProfileListMock } from "../components/lists/card-list-view/card-list-view.mock";
+
+export const getSectionItems = () => ([
   {
-    name: 'Chi siamo',
-    icon: 'icon-home',
-    value: 'home',
+    type: 'head',
+    id: 'home',
+    title: 'Supera te stesso e supererai il mondo',
+    bodyContent: 'Non soffocare la tua ispirazione e la tua immaginazione, non diventare lo schiavo del tuo modello',
+    buttonValue:'VIEW MORE',
     isSelected: true,
   },
   {
-    name: 'Il team',
-    icon: 'icon-group',
-    value: 'members',
+    type:'body',
+    id: 'members',
+    title: 'Chi Siamo',
+    bodyContent: "RainbowTech nasce da un gruppo di amici che condividono la passione per l'informatica e la voglia di sperimentare nuove tecnologie con l'obiettivo di apprendere e migliorare nuove competenze",
+    cards: cardsProfileListMock,
     isSelected: false,
   },
   {
-    name: 'Portfolio',
-    icon: 'icon-flask',
-    value: 'portfolio',
+    type: 'body',
+    id: 'portfolio',
+    title: 'portfolio',
+    bodyContent: "C'è vero progresso solo quando i vantaggi di una nuova tecnologia diventano per tutti",
+    cards: cardsProfileListMock,
     isSelected: false,
   },
   {
-    name: 'Utlimi articoli',
-    icon: 'icon-coffee',
-    value: 'blog',
+    type: 'body',
+    id: 'blog',
+    title: 'blog',
+    bodyContent:"Il maggior piacere nel fare qualcosa di nuovo sta nel pensiero di poterlo condividere",
+    cards: cardsProfileListMock,
     isSelected: false,
   }
 ])
