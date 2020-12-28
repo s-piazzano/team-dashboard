@@ -9,10 +9,16 @@ module.exports = {
         apiURL: process.env.API_URL,
         queryLimit: 1000, // Default to 100
         contentTypes: [
-          `article`
-        ]  
+          `article`,
+          `test`
+        ],
+        singleTypes: [
+         `left-menu-item`
+        ]
       },
     },
+    `gatsby-transformer-sharp`, 
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-google-fonts`,
@@ -24,13 +30,5 @@ module.exports = {
         display: 'swap'
       }
     },
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: '/assets/svg/' // See below to configure properly
-        }
-      }
-    }
   ],
 }

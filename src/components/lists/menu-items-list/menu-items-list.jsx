@@ -14,9 +14,9 @@ export const MenuItemsList = ({items = [], mode, action}) => {
           onClick={() => action(item.value)}
         >
           <div className="item-icon">
-            <SvgIcon
+            {<SvgIcon
               iconColor={item.isSelected ? '#a90926' : '#9a9b9c'} iconName={item.icon}>
-            </SvgIcon>
+            </SvgIcon> }
           </div>
           <p className="item-label">{item.name}</p>
         </button>

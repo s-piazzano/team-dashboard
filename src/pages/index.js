@@ -10,8 +10,9 @@ import { menuItems, links, sections } from "./index.model";
 import "../../assets/scss/main.scss";
 import './index.scss';
 
-export default function Home(data) {
-  const [items, updateMenuSelection] = React.useState(menuItems)
+export default function Home({data}) {
+  console.log(data);
+  const [items, updateMenuSelection] = React.useState(data.strapiLeftMenuItem.item)
   const [sidebarIsOpen, toggleSidebar] = React.useState(false)
 
   const handleMenuSelection = (target) => {
@@ -52,3 +53,17 @@ export default function Home(data) {
     </div>
   )
 }
+
+export const query = graphql`
+  {
+    strapiLeftMenuItem {
+      item {
+        icon
+        id
+        isSelected
+        name
+        value
+      }
+    }
+  }
+`
