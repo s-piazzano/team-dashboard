@@ -1,6 +1,7 @@
 import React from "react"
+import "./section-head.scss";
 
-export const SectionHead = ({id, sectionRefs, positionInMenu, title, bodyContent, headAction, buttonValue}) => {
+export const SectionHead = ({ id, sectionRefs, positionInMenu, title, bodyContent, headAction, buttonValue }) => {
 
 	return (
 		<section
@@ -17,7 +18,13 @@ export const SectionHead = ({id, sectionRefs, positionInMenu, title, bodyContent
 				</p>
 			</div>
 			<div className="head-button">
-				<button onClick={headAction}>{buttonValue}</button>
+				{/* <button onClick={headAction}>{buttonValue}</button> */}
+				<button>
+					<svg>
+						<rect></rect>
+					</svg>
+        {buttonValue}
+				</button>
 			</div>
 		</section>
 	)
