@@ -5,7 +5,7 @@ import { SidebarMenu } from "../components/sidebars/sidebar-menu/sidebar-menu"
 
 import { LayoutWithSidebar } from "../components/layouts/layout-with-sidebar/layout-with-sidebar";
 import { SinglePageContainer } from "../containers/single-page-container/single-page-container";
-import { menuItems, links } from "./index.model";
+import { menuItems, links, sections } from "./index.model";
 
 import "../../assets/scss/main.scss";
 import './index.scss';
@@ -44,6 +44,7 @@ export default function Home(data) {
         />
         <SinglePageContainer
           items={items}
+          sections={sections}
           handleScroll={handleMenuSelection}
           handleSocialLink={handleSocialLink}
         />

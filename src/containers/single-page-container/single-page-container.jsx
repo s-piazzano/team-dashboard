@@ -7,7 +7,8 @@ import './single-page-container.scss';
 export const SinglePageContainer = ({
   handleSocialLink,
   handleScroll,
-  items
+  items,
+  sections
 }) => {
 
   const sectionRefs = React.useRef([])
@@ -78,50 +79,46 @@ export const SinglePageContainer = ({
 
   return(
     <div>
-      <section ref={ref => sectionRefs.current[0] = ref} id="home" className="section-home">
-        <div className="home-title">
-          <h2>Supera te stesso e supererai il mondo</h2>
-        </div>
-        <div className="home-content">
-          <p>Non soffocare la tua ispirazione e la tua immaginazione, non diventare lo schiavo del tuo modello
-          </p>
-        </div>
-        <div className="home-button">
-          <button>VIEW MORE</button>
-        </div>
-      </section>
+      {
+        sections.map(section => {
+          const positionInMenu = items.findIndex(menuItem => menuItem.value === section.id)
 
-      <section ref={ref => sectionRefs.current[1] = ref} id="members" className="section-members">
-        <HeaderSection title="Chi Siamo"
-          description="RainbowTech nasce da un gruppo di amici che condividono la passione per l'informatica e la voglia di sperimentare nuove tecnologie con l'obiettivo di apprendere e migliorare nuove competenze"
-        >
-        </HeaderSection>
-        <CardListView
-          cards={cardsProfileListMock}
-          handleSocialLink={handleSocialLink}
-        />
-      </section>
+          return section.type === 'section-head'
+            ? (<section
+                key={section.id}
+                id={section.id}
+                className={section.type}
+                ref={ref => sectionRefs.current[positionInMenu] = ref}
+              >
+                <div className="head-title">
+                  <h2>{section.title}</h2>
+                </div>
+                <div className="head-content">
+                  <p>{section.bodyContent}
+                  </p>
+                </div>
+                <div className="head-button">
+                  <button>{section.buttonValue}</button>
+                </div>
+              </section>)
+            : (<section
+                key={section.id}
+                id={section.id}
+                className={section.type}
+                ref={ref => sectionRefs.current[positionInMenu] = ref}
+              >
+                <HeaderSection title={section.title}
+                  description={section.bodyContent}
+                >
+                </HeaderSection>
+                <CardListView
+                  cards={section.cards}
+                  handleSocialLink={handleSocialLink}
+                />
+              </section>)
 
-      <section ref={ref => sectionRefs.current[2] = ref} id="portfolio" className="section-portfolio">
-        <HeaderSection title="Portfolio"
-          description="C'è vero progresso solo quando i vantaggi di una nuova tecnologia diventano per tutti"
-        >
-        </HeaderSection>
-        <CardListView
-          cards={cardsListMock}
-          handleSocialLink={handleSocialLink}
-        />
-      </section>
-
-      <section ref={ref => sectionRefs.current[3] = ref} id="blog" className="section-blog">
-        <HeaderSection title="Blog"
-            description="Il maggior piacere nel fare qualcosa di nuovo sta nel pensiero di poterlo condividere"
-        ></HeaderSection>
-        <CardListView
-          cards={cardsListMock}
-          handleSocialLink={handleSocialLink}
-        />
-      </section>
+        })
+      }
     </div>
   )
 }
