@@ -1,6 +1,7 @@
 import React from 'react';
 import { SectionBody } from '../../components/sections/section-body/section-body';
 import './single-page-container.scss';
+import { SectionHead } from '../../components/sections/section-head/section-head';
 
 
 export const SinglePageContainer = ({
@@ -14,17 +15,17 @@ export const SinglePageContainer = ({
   const selectedSection = items.find(item => item.isSelected)
 
   const scrollHandler = () => {
-    
+
     const sectionHeightsMapping = sections.map((section, index) => {
 
       // get only section heights for current or previous sections
       const sectionsHeights = new Array(index + 1).fill(0).map((_, i) => sectionRefs.current[i].offsetHeight)
-      
+
       // sum heights to get upper boundary
       const max = sectionsHeights.reduce((acc, curr) => acc + curr, 0)
 
       // exclude first iteration where lower boundary is zero, then remove current item height
-      if(index !== 0) {
+      if (index !== 0) {
         sectionsHeights.pop()
       };
 
@@ -38,12 +39,12 @@ export const SinglePageContainer = ({
         max
       }
     })
-    
+
     // calculate target section that is now focused
     // skipping render if section is teh same as before
     sectionHeightsMapping.forEach(currentSection => {
-      if(window.pageYOffset + 300 >= currentSection.min && window.pageYOffset + 300 <= currentSection.max ) {
-        if(currentSection.value !== selectedSection.value) {
+      if (window.pageYOffset + 300 >= currentSection.min && window.pageYOffset + 300 <= currentSection.max) {
+        if (currentSection.value !== selectedSection.value) {
           handleScroll(currentSection.value)
         }
       }
@@ -55,7 +56,7 @@ export const SinglePageContainer = ({
    */
   const focusSection = () => {
     items.forEach((item, i) => {
-      if(item.isSelected) {
+      if (item.isSelected) {
         sectionRefs.current[i].scrollIntoView(/* {behavior: "smooth"} */)
       }
     })
@@ -68,7 +69,7 @@ export const SinglePageContainer = ({
 
     // Scroll events for keeping updated navbar during user scroll
     document.addEventListener("scroll", scrollHandler);
-  
+
     // Remove listener (like componentWillUnmount)
     return () => {
       document.removeEventListener("scroll", scrollHandler);
@@ -80,31 +81,23 @@ export const SinglePageContainer = ({
   }
 
 
-  return(
+  return (
     <div>
       {sections.map(section => {
-          const positionInMenu = items.findIndex(menuItem => menuItem.value === section.id)
-
+        const positionInMenu = items.findIndex(menuItem => menuItem.value === section.id)
           return positionInMenu === -1
            ? null
            : section.type === 'section-head'
-            ? (<section
-                key={section.id}
-                id={section.id}
-                className={section.type}
-                ref={ref => sectionRefs.current[positionInMenu] = ref}
-              >
-                <div className="head-title">
-                  <h2>{section.title}</h2>
-                </div>
-                <div className="head-content">
-                  <p>{section.bodyContent}
-                  </p>
-                </div>
-                <div className="head-button">
-                  <button onClick={headAction}>{section.buttonValue}</button>
-                </div>
-              </section>)
+            ? (<SectionHead 
+              key={section.id}
+              id={section.id}
+              sectionRefs={sectionRefs}
+              positionInMenu={positionInMenu}
+              title={section.title}
+              bodyContent={section.bodyContent}
+              headAction={headAction}
+              buttonValue={section.buttonValue}
+              />)
             : (<SectionBody
                 key={section.id}
                 section={section}
