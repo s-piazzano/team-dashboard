@@ -1,4 +1,9 @@
 .svg-icon {
-  // todo add ripple effect
-  // add background mode
+  opacity: 1;
+  transition: all 0.8s;
+  
+  &:active {
+    opacity: 0.4;
+    transition: 0s;
+  }
 }

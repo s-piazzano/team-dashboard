@@ -1,30 +1,31 @@
 import React from 'react';
-import { CardListView } from '../../components/lists/card-list-view/card-list-view';
-import { cardsListMock, cardsProfileListMock } from '../../components/lists/card-list-view/card-list-view.mock';
-import { HeaderSection } from "../../components/header/header-section/header-section";
+import { SectionBody } from '../../components/sections/section-body/section-body';
 import './single-page-container.scss';
+import { SectionHead } from '../../components/sections/section-head/section-head';
+
 
 export const SinglePageContainer = ({
   handleSocialLink,
   handleScroll,
-  items
+  items,
+  sections
 }) => {
 
   const sectionRefs = React.useRef([])
   const selectedSection = items.find(item => item.isSelected)
 
   const scrollHandler = () => {
-    
-    const sectionHeightsMapping = items.map((item, index) => {
+
+    const sectionHeightsMapping = sections.map((section, index) => {
 
       // get only section heights for current or previous sections
       const sectionsHeights = new Array(index + 1).fill(0).map((_, i) => sectionRefs.current[i].offsetHeight)
-      
+
       // sum heights to get upper boundary
       const max = sectionsHeights.reduce((acc, curr) => acc + curr, 0)
 
       // exclude first iteration where lower boundary is zero, then remove current item height
-      if(index !== 0) {
+      if (index !== 0) {
         sectionsHeights.pop()
       };
 
@@ -33,17 +34,17 @@ export const SinglePageContainer = ({
 
       // push to array the new object data
       return {
-        value: item.value,
+        value: section.id,
         min,
         max
       }
     })
-    
+
     // calculate target section that is now focused
     // skipping render if section is teh same as before
     sectionHeightsMapping.forEach(currentSection => {
-      if(window.pageYOffset + 300 >= currentSection.min && window.pageYOffset + 300 <= currentSection.max ) {
-        if(currentSection.value !== selectedSection.value) {
+      if (window.pageYOffset + 300 >= currentSection.min && window.pageYOffset + 300 <= currentSection.max) {
+        if (currentSection.value !== selectedSection.value) {
           handleScroll(currentSection.value)
         }
       }
@@ -55,7 +56,7 @@ export const SinglePageContainer = ({
    */
   const focusSection = () => {
     items.forEach((item, i) => {
-      if(item.isSelected) {
+      if (item.isSelected) {
         sectionRefs.current[i].scrollIntoView(/* {behavior: "smooth"} */)
       }
     })
@@ -68,60 +69,43 @@ export const SinglePageContainer = ({
 
     // Scroll events for keeping updated navbar during user scroll
     document.addEventListener("scroll", scrollHandler);
-  
+
     // Remove listener (like componentWillUnmount)
     return () => {
       document.removeEventListener("scroll", scrollHandler);
     };
   })
 
+  const headAction = () => {
+    alert('head action')
+  }
 
-  return(
+
+  return (
     <div>
-      <section ref={ref => sectionRefs.current[0] = ref} id="home" className="section-home">
-        <div className="home-title">
-          <h2>Supera te stesso e supererai il mondo</h2>
-        </div>
-        <div className="home-content">
-          <p>Non soffocare la tua ispirazione e la tua immaginazione, non diventare lo schiavo del tuo modello
-          </p>
-        </div>
-        <div className="home-button">
-          <button>VIEW MORE</button>
-        </div>
-      </section>
-
-      <section ref={ref => sectionRefs.current[1] = ref} id="members" className="section-members">
-        <HeaderSection title="Chi Siamo"
-          description="RainbowTech nasce da un gruppo di amici che condividono la passione per l'informatica e la voglia di sperimentare nuove tecnologie con l'obiettivo di apprendere e migliorare nuove competenze"
-        >
-        </HeaderSection>
-        <CardListView
-          cards={cardsProfileListMock}
-          handleSocialLink={handleSocialLink}
-        />
-      </section>
-
-      <section ref={ref => sectionRefs.current[2] = ref} id="portfolio" className="section-portfolio">
-        <HeaderSection title="Portfolio"
-          description="C'è vero progresso solo quando i vantaggi di una nuova tecnologia diventano per tutti"
-        >
-        </HeaderSection>
-        <CardListView
-          cards={cardsListMock}
-          handleSocialLink={handleSocialLink}
-        />
-      </section>
-
-      <section ref={ref => sectionRefs.current[3] = ref} id="blog" className="section-blog">
-        <HeaderSection title="Blog"
-            description="Il maggior piacere nel fare qualcosa di nuovo sta nel pensiero di poterlo condividere"
-        ></HeaderSection>
-        <CardListView
-          cards={cardsListMock}
-          handleSocialLink={handleSocialLink}
-        />
-      </section>
+      {sections.map(section => {
+        const positionInMenu = items.findIndex(menuItem => menuItem.value === section.id)
+          return positionInMenu === -1
+           ? null
+           : section.type === 'section-head'
+            ? (<SectionHead 
+              key={section.id}
+              id={section.id}
+              sectionRefs={sectionRefs}
+              positionInMenu={positionInMenu}
+              title={section.title}
+              bodyContent={section.bodyContent}
+              headAction={headAction}
+              buttonValue={section.buttonValue}
+              />)
+            : (<SectionBody
+                key={section.id}
+                section={section}
+                sectionRefs={sectionRefs}
+                positionInMenu={positionInMenu}
+                handleSocialLink={handleSocialLink}
+              />)
+        })}
     </div>
   )
 }

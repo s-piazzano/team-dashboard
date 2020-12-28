@@ -1,45 +1,7 @@
-export const menuItems = [
-  {
-    name: 'Chi siamo',
-    icon: 'icon-home',
-    value: 'home',
-    isSelected: true,
-  },
-  {
-    name: 'Il team',
-    icon: 'icon-group',
-    value: 'members',
-    isSelected: false,
-  },
-  {
-    name: 'Portfolio',
-    icon: 'icon-flask',
-    value: 'portfolio',
-    isSelected: false,
-  },
-  {
-    name: 'Utlimi articoli',
-    icon: 'icon-coffee',
-    value: 'blog',
-    isSelected: false,
-  }
-]
+import { getMenuItemsQuery } from '../queries/menu-items';
+import { getFooterLinksQuery } from '../queries/footer-links';
+import { getSectionItemsQuery } from '../queries/section-items';
 
-export const links = [
-  {
-    icon: 'icon-github',
-    url: 'https://www.github.com'
-  },
-  {
-    icon: 'icon-linkedin',
-    url: 'https://www.linkedin.com'
-  },
-  {
-    icon: 'icon-stackoverflow',
-    url: 'https://www.stackoverflow.com'
-  },
-  {
-    icon: 'icon-gitlab',
-    url: 'https://www.gitlab.com'
-  },
-]
+export const menuItems = getMenuItemsQuery()
+export const links = getFooterLinksQuery()
+export const sections = getSectionItemsQuery()
