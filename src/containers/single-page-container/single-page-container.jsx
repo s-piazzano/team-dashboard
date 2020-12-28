@@ -79,11 +79,12 @@ export const SinglePageContainer = ({
 
   return(
     <div>
-      {
-        sections.map(section => {
+      {sections.map(section => {
           const positionInMenu = items.findIndex(menuItem => menuItem.value === section.id)
 
-          return section.type === 'section-head'
+          return positionInMenu === -1
+           ? null
+           : section.type === 'section-head'
             ? (<section
                 key={section.id}
                 id={section.id}
@@ -116,9 +117,7 @@ export const SinglePageContainer = ({
                   handleSocialLink={handleSocialLink}
                 />
               </section>)
-
-        })
-      }
+        })}
     </div>
   )
 }
