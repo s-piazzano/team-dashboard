@@ -16,7 +16,7 @@ export const SinglePageContainer = ({
 
   const scrollHandler = () => {
     
-    const sectionHeightsMapping = items.map((item, index) => {
+    const sectionHeightsMapping = sections.map((section, index) => {
 
       // get only section heights for current or previous sections
       const sectionsHeights = new Array(index + 1).fill(0).map((_, i) => sectionRefs.current[i].offsetHeight)
@@ -34,7 +34,7 @@ export const SinglePageContainer = ({
 
       // push to array the new object data
       return {
-        value: item.value,
+        value: section.id,
         min,
         max
       }
@@ -76,6 +76,10 @@ export const SinglePageContainer = ({
     };
   })
 
+  headAction = () => {
+    alert('head action')
+  }
+
 
   return(
     <div>
@@ -99,7 +103,7 @@ export const SinglePageContainer = ({
                   </p>
                 </div>
                 <div className="head-button">
-                  <button>{section.buttonValue}</button>
+                  <button onClick={headAction}>{section.buttonValue}</button>
                 </div>
               </section>)
             : (<section
