@@ -1,8 +1,7 @@
 import React from 'react';
-import { CardListView } from '../../components/lists/card-list-view/card-list-view';
-import { cardsListMock, cardsProfileListMock } from '../../components/lists/card-list-view/card-list-view.mock';
-import { HeaderSection } from "../../components/header/header-section/header-section";
+import { SectionBody } from '../../components/sections/section-body/section-body';
 import './single-page-container.scss';
+
 
 export const SinglePageContainer = ({
   handleSocialLink,
@@ -76,7 +75,7 @@ export const SinglePageContainer = ({
     };
   })
 
-  headAction = () => {
+  const headAction = () => {
     alert('head action')
   }
 
@@ -106,21 +105,13 @@ export const SinglePageContainer = ({
                   <button onClick={headAction}>{section.buttonValue}</button>
                 </div>
               </section>)
-            : (<section
+            : (<SectionBody
                 key={section.id}
-                id={section.id}
-                className={section.type}
-                ref={ref => sectionRefs.current[positionInMenu] = ref}
-              >
-                <HeaderSection title={section.title}
-                  description={section.bodyContent}
-                >
-                </HeaderSection>
-                <CardListView
-                  cards={section.cards}
-                  handleSocialLink={handleSocialLink}
-                />
-              </section>)
+                section={section}
+                sectionRefs={sectionRefs}
+                positionInMenu={positionInMenu}
+                handleSocialLink={handleSocialLink}
+              />)
         })}
     </div>
   )
