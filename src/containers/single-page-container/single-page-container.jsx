@@ -3,6 +3,7 @@ import { CardListView } from '../../components/lists/card-list-view/card-list-vi
 import { cardsListMock, cardsProfileListMock } from '../../components/lists/card-list-view/card-list-view.mock';
 import { HeaderSection } from "../../components/header/header-section/header-section";
 import './single-page-container.scss';
+import { SectionHead } from '../../components/sections/section-head/section-head';
 
 export const SinglePageContainer = ({
   handleSocialLink,
@@ -15,17 +16,17 @@ export const SinglePageContainer = ({
   const selectedSection = items.find(item => item.isSelected)
 
   const scrollHandler = () => {
-    
+
     const sectionHeightsMapping = sections.map((section, index) => {
 
       // get only section heights for current or previous sections
       const sectionsHeights = new Array(index + 1).fill(0).map((_, i) => sectionRefs.current[i].offsetHeight)
-      
+
       // sum heights to get upper boundary
       const max = sectionsHeights.reduce((acc, curr) => acc + curr, 0)
 
       // exclude first iteration where lower boundary is zero, then remove current item height
-      if(index !== 0) {
+      if (index !== 0) {
         sectionsHeights.pop()
       };
 
@@ -39,12 +40,12 @@ export const SinglePageContainer = ({
         max
       }
     })
-    
+
     // calculate target section that is now focused
     // skipping render if section is teh same as before
     sectionHeightsMapping.forEach(currentSection => {
-      if(window.pageYOffset + 300 >= currentSection.min && window.pageYOffset + 300 <= currentSection.max ) {
-        if(currentSection.value !== selectedSection.value) {
+      if (window.pageYOffset + 300 >= currentSection.min && window.pageYOffset + 300 <= currentSection.max) {
+        if (currentSection.value !== selectedSection.value) {
           handleScroll(currentSection.value)
         }
       }
@@ -56,7 +57,7 @@ export const SinglePageContainer = ({
    */
   const focusSection = () => {
     items.forEach((item, i) => {
-      if(item.isSelected) {
+      if (item.isSelected) {
         sectionRefs.current[i].scrollIntoView(/* {behavior: "smooth"} */)
       }
     })
@@ -69,59 +70,54 @@ export const SinglePageContainer = ({
 
     // Scroll events for keeping updated navbar during user scroll
     document.addEventListener("scroll", scrollHandler);
-  
+
     // Remove listener (like componentWillUnmount)
     return () => {
       document.removeEventListener("scroll", scrollHandler);
     };
   })
 
-  headAction = () => {
+  const headAction = () => {
     alert('head action')
   }
 
 
-  return(
+  return (
     <div>
       {sections.map(section => {
-          const positionInMenu = items.findIndex(menuItem => menuItem.value === section.id)
+        const positionInMenu = items.findIndex(menuItem => menuItem.value === section.id)
 
-          return positionInMenu === -1
-           ? null
-           : section.type === 'section-head'
-            ? (<section
+        return positionInMenu === -1
+          ? null
+          : section.type === 'section-head'
+            ? (
+              <SectionHead 
                 key={section.id}
                 id={section.id}
-                className={section.type}
-                ref={ref => sectionRefs.current[positionInMenu] = ref}
+                sectionRefs={sectionRefs}
+                positionInMenu={positionInMenu}
+                title={section.title}
+                bodyContent={section.bodyContent}
+                headAction={headAction}
+                buttonValue={section.buttonValue}
+              />
+            )
+              : (<section
+                key = {section.id}
+                id = { section.id }
+                className = { section.type }
+                ref = { ref => sectionRefs.current[positionInMenu] = ref}
               >
-                <div className="head-title">
-                  <h2>{section.title}</h2>
-                </div>
-                <div className="head-content">
-                  <p>{section.bodyContent}
-                  </p>
-                </div>
-                <div className="head-button">
-                  <button onClick={headAction}>{section.buttonValue}</button>
-                </div>
+      <HeaderSection title={section.title}
+        description={section.bodyContent}
+      >
+      </HeaderSection>
+      <CardListView
+        cards={section.cards}
+        handleSocialLink={handleSocialLink}
+      />
               </section>)
-            : (<section
-                key={section.id}
-                id={section.id}
-                className={section.type}
-                ref={ref => sectionRefs.current[positionInMenu] = ref}
-              >
-                <HeaderSection title={section.title}
-                  description={section.bodyContent}
-                >
-                </HeaderSection>
-                <CardListView
-                  cards={section.cards}
-                  handleSocialLink={handleSocialLink}
-                />
-              </section>)
-        })}
-    </div>
+})}
+    </div >
   )
 }
