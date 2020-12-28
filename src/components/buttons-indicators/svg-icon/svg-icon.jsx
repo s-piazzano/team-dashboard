@@ -1,5 +1,6 @@
 import React from "react"
 import svgSprite from "../../../../assets/svg/sprite/symbol-defs.svg";
+import './svg-icon.scss';
 
 export const SvgIcon = ({iconName, iconColor, iconClick}) => {
 

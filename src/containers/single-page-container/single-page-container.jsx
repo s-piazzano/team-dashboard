@@ -1,9 +1,8 @@
 import React from 'react';
-import { CardListView } from '../../components/lists/card-list-view/card-list-view';
-import { cardsListMock, cardsProfileListMock } from '../../components/lists/card-list-view/card-list-view.mock';
-import { HeaderSection } from "../../components/header/header-section/header-section";
+import { SectionBody } from '../../components/sections/section-body/section-body';
 import './single-page-container.scss';
 import { SectionHead } from '../../components/sections/section-head/section-head';
+
 
 export const SinglePageContainer = ({
   handleSocialLink,
@@ -86,38 +85,27 @@ export const SinglePageContainer = ({
     <div>
       {sections.map(section => {
         const positionInMenu = items.findIndex(menuItem => menuItem.value === section.id)
-
-        return positionInMenu === -1
-          ? null
-          : section.type === 'section-head'
-            ? (
-              <SectionHead 
+          return positionInMenu === -1
+           ? null
+           : section.type === 'section-head'
+            ? (<SectionHead 
+              key={section.id}
+              id={section.id}
+              sectionRefs={sectionRefs}
+              positionInMenu={positionInMenu}
+              title={section.title}
+              bodyContent={section.bodyContent}
+              headAction={headAction}
+              buttonValue={section.buttonValue}
+              />)
+            : (<SectionBody
                 key={section.id}
-                id={section.id}
+                section={section}
                 sectionRefs={sectionRefs}
                 positionInMenu={positionInMenu}
-                title={section.title}
-                bodyContent={section.bodyContent}
-                headAction={headAction}
-                buttonValue={section.buttonValue}
-              />
-            )
-              : (<section
-                key = {section.id}
-                id = { section.id }
-                className = { section.type }
-                ref = { ref => sectionRefs.current[positionInMenu] = ref}
-              >
-      <HeaderSection title={section.title}
-        description={section.bodyContent}
-      >
-      </HeaderSection>
-      <CardListView
-        cards={section.cards}
-        handleSocialLink={handleSocialLink}
-      />
-              </section>)
-})}
-    </div >
+                handleSocialLink={handleSocialLink}
+              />)
+        })}
+    </div>
   )
 }
