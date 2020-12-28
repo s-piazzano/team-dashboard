@@ -1,6 +1,6 @@
 import { cardsProfileListMock } from "../components/lists/card-list-view/card-list-view.mock";
 
-export const getSectionItems = () => ([
+export const getSectionItemsQuery = () => ([
   {
     type: 'head',
     id: 'home',
