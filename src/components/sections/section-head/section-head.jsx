@@ -18,12 +18,11 @@ export const SectionHead = ({ id, sectionRefs, positionInMenu, title, bodyConten
 				</p>
 			</div>
 			<div className="head-button">
-				{/* <button onClick={headAction}>{buttonValue}</button> */}
-				<button>
+				<button onClick={headAction}>
 					<svg>
 						<rect></rect>
 					</svg>
-        {buttonValue}
+          {buttonValue}
 				</button>
 			</div>
 		</section>

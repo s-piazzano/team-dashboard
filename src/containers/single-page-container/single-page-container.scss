@@ -9,7 +9,6 @@ section {
   &:nth-child(even) {
     &.section-body {
       background-color: #fff;
-
     }
   }
 
@@ -17,7 +16,6 @@ section {
     &.section-body {
       background-color: #e9e9e9;
     }
-
   }  
 }
 
@@ -31,18 +29,6 @@ section {
   background-size: cover;
   background-position: center;
 }
-
-// .section-members {
-//   background-color: #e9e9e9;
-// }
-
-// .section-portfolio {
-//   background-color: #fff;
-// }
-
-// .section-blog {
-//   background-color: #e9e9e9;
-// }
 
 .head-title{
   h2{
