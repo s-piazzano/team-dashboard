@@ -1,10 +1,9 @@
 import React from "react"
-import './card.scss';
+import "./card.scss"
 
-export const Card = ({title, description, imageUrl, projectUrl}) => {
-
+export const Card = ({ title, description, imageUrl, projectUrl }: any) => {
   const handleProjectLink = () => {
-    window.open(projectUrl);
+    window.open(projectUrl)
   }
 
   return (
@@ -15,7 +14,7 @@ export const Card = ({title, description, imageUrl, projectUrl}) => {
         </div>
         <div className="card-content">
           <div className="card-title">
-          <h3>{title}</h3>
+            <h3>{title}</h3>
           </div>
           <div className="card-body">
             <p>{description}</p>

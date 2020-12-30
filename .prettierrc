@@ -1,4 +1,4 @@
 {
   "arrowParens": "avoid",
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
 }

@@ -1,18 +1,17 @@
 import React from "react"
-import './cardProfile.scss';
-import { SvgIcon } from '../../buttons-indicators/svg-icon/svg-icon';
+import "./cardProfile.scss"
+import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon"
 
 export const CardProfile = ({
   title,
   description,
   imageUrl,
   profileLinks = [],
-  handleSocialLink
-}) => {
+  handleSocialLink,
+}: any) => {
   return (
     <div className="cardProfile">
       <div className="card-container">
-
         <div className="image-container">
           <img src={imageUrl} alt="pino!" />
         </div>
@@ -28,7 +27,7 @@ export const CardProfile = ({
 
         <div className="social-container">
           <div className="social-link">
-            {profileLinks.map((link, i) => (
+            {profileLinks.map((link: any, i: number) => (
               <div className="social" key={i}>
                 <SvgIcon
                   iconName={link.iconName}
