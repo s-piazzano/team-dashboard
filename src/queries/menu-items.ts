@@ -1,8 +1,11 @@
 export interface MenuItemInterface {
+  id: string
   name: string
   icon: string
-  value: string
   isSelected: boolean
+  section: {
+    name: string
+  }
 }
 
 export const getMenuItemsQuery = (): Array<MenuItemInterface> => [

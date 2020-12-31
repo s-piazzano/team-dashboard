@@ -11,7 +11,6 @@ export const SinglePageContainer = ({
 }: any) => {
   const sectionRefs = React.useRef([]);
   const selectedSection = items.find((item: any) => item.isSelected);
-
   const scrollHandler = () => {
     const sectionHeightsMapping = sections.map(
       (section: any, index: number) => {
@@ -50,7 +49,7 @@ export const SinglePageContainer = ({
         window.pageYOffset + 300 >= currentSection.min &&
         window.pageYOffset + 300 <= currentSection.max
       ) {
-        if (currentSection.value !== selectedSection.value) {
+        if (currentSection.value !== selectedSection.section.name) {
           handleScroll(currentSection.value);
         }
       }
@@ -91,7 +90,7 @@ export const SinglePageContainer = ({
     <div>
       {sections.map((section: any) => {
         const positionInMenu = items.findIndex(
-          (menuItem: any) => menuItem.value === section.id
+          (menuItem: any) => menuItem.section.name === section.id
         );
         return positionInMenu === -1 ? null : section.type ===
           "section-head" ? (

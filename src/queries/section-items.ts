@@ -49,6 +49,15 @@ export const getSectionItemsQuery = (): Array<any> => [
       "Il maggior piacere nel fare qualcosa di nuovo sta nel pensiero di poterlo condividere",
     cards: cardsListMock,
     isSelected: false,
+  },    
+  {
+    type: "section-body",
+    id: "test",
+    title: "blog",
+    bodyContent:
+      "Il maggior piacere nel fare qualcosa di nuovo sta nel pensiero di poterlo condividere",
+    cards: cardsListMock,
+    isSelected: false,
   },
 ]
 

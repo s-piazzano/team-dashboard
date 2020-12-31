@@ -8,8 +8,11 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL,
         queryLimit: 5000, // Default to 100
-        contentTypes: [`article`],
-        singleTypes: [`left-menu-item`],
+        contentTypes: [],
+        singleTypes: [
+          `left-menu`,
+          `homepage`
+        ],
       },
     },
     `gatsby-plugin-typescript`,
