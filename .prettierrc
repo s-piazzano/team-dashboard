@@ -2,4 +2,5 @@
   "arrowParens": "avoid",
   "editor.tabSize": 2,
   "semi": true
+  "endOfLine": "lf"
 }
