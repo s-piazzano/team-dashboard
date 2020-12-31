@@ -13,7 +13,7 @@ import { MenuItemInterface } from "../queries/menu-items"
 
 export default function Home({ data }: any): ReactElement<any> {
   const fetchedItems: Array<MenuItemInterface> =
-    data?.strapiLeftMenuItem?.item || []
+    data?.strapiLeftMenuItem?.item || menuItems
 
   const [items, updateMenuSelection] = React.useState(fetchedItems)
   const [sidebarIsOpen, toggleSidebar] = React.useState(false)
@@ -34,6 +34,11 @@ export default function Home({ data }: any): ReactElement<any> {
 
   return (
     <div className="page">
+      {/* <div className="zero"></div>
+      <div className="one"></div>
+      <div className="two"></div>
+      <div className="three"></div>
+      <div className="four"></div> */}
       <LayoutWithSidebar
         sidebarIsOpen={sidebarIsOpen}
         layoutAction={() => toggleSidebar(!sidebarIsOpen)}
@@ -57,16 +62,16 @@ export default function Home({ data }: any): ReactElement<any> {
   )
 }
 
-export const query = graphql`
-  {
-    strapiLeftMenu {
-      item {
-        icon
-        id
-        isSelected
-        name
-        value
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   {
+//     strapiLeftMenu {
+//       item {
+//         icon
+//         id
+//         isSelected
+//         name
+//         value
+//       }
+//     }
+//   }
+// `
