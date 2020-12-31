@@ -13,14 +13,14 @@ import { MenuItemInterface } from "../queries/menu-items"
 
 export default function Home({ data }: any): ReactElement<any> {
   const fetchedItems: Array<MenuItemInterface> =
-    data?.strapiLeftMenuItem?.item || []
+    data?.strapiLeftMenu?.items || []
 
   const [items, updateMenuSelection] = React.useState(fetchedItems)
   const [sidebarIsOpen, toggleSidebar] = React.useState(false)
 
   const handleMenuSelection = (target: string) => {
     const updatedItems: Array<MenuItemInterface> = items.map(item =>
-      item.value === target
+      item.section.name === target
         ? { ...item, isSelected: true }
         : { ...item, isSelected: false }
     )
@@ -60,12 +60,14 @@ export default function Home({ data }: any): ReactElement<any> {
 export const query = graphql`
   {
     strapiLeftMenu {
-      item {
+      items {
         icon
         id
         isSelected
         name
-        value
+        section {
+          name
+        }
       }
     }
   }
