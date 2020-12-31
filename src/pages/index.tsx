@@ -57,16 +57,16 @@ export default function Home({ data }: any): ReactElement<any> {
   )
 }
 
-export const query = graphql`
-  {
-    strapiLeftMenuItem {
-      item {
-        icon
-        id
-        isSelected
-        name
-        value
-      }
-    }
-  }
-`
+// export const query = graphql`
+//   {
+//     strapiLeftMenu {
+//       item {
+//         icon
+//         id
+//         isSelected
+//         name
+//         value
+//       }
+//     }
+//   }
+// `

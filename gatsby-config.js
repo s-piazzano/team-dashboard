@@ -7,9 +7,9 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: process.env.API_URL,
-        queryLimit: 1000, // Default to 100
-        contentTypes: [`article`, `test`],
-        singleTypes: [`left-menu-item`],
+        queryLimit: 5000, // Default to 100
+        contentTypes: [`article`],
+        singleTypes: [`left-menu`],
       },
     },
     `gatsby-plugin-typescript`,
