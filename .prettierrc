@@ -1,6 +1,6 @@
 {
   "arrowParens": "avoid",
   "editor.tabSize": 2,
-  "semi": true
+  "semi": true,
   "endOfLine": "lf"
 }

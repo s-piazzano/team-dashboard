@@ -11,7 +11,7 @@ export const MenuItemsList = ({ items = [], mode, action }: any) => {
         <button
           className={`menu-item ${item.isSelected ? "clicked" : ""}`}
           key={i}
-          onClick={() => action(item.section.name)}
+          onClick={() => action(item.section.name)}  
         >
           <div className="item-icon">
             {
