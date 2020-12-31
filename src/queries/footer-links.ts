@@ -15,7 +15,7 @@ export const getFooterLinksQuery = (): Array<any> => [
     icon: "icon-gitlab",
     url: "https://www.gitlab.com",
   },
-];
+]
 
 // = graphql`
 // {
