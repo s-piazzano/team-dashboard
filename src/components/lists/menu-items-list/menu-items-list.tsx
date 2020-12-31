@@ -1,9 +1,9 @@
-import React from "react"
-import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon"
-import "./menu-items-list.scss"
+import React from "react";
+import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon";
+import "./menu-items-list.scss";
 
 export const MenuItemsList = ({ items = [], mode, action }: any) => {
-  const isExpanded = mode === "expanded"
+  const isExpanded = mode === "expanded";
 
   return (
     <div className={`items-container ${isExpanded ? "" : "narrow"}`}>
@@ -25,5 +25,5 @@ export const MenuItemsList = ({ items = [], mode, action }: any) => {
         </button>
       ))}
     </div>
-  )
-}
+  );
+};

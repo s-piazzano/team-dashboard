@@ -1,7 +1,7 @@
-import React, { Children } from "react"
-import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon"
+import React, { Children } from "react";
+import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon";
 
-import "./layout-with-sidebar.scss"
+import "./layout-with-sidebar.scss";
 
 export const LayoutWithSidebar = ({
   children,
@@ -25,24 +25,24 @@ export const LayoutWithSidebar = ({
         </div>
         {child}
       </aside>
-    )
-  }
+    );
+  };
 
   const renderContent = (child: any) => {
     return (
       <main className={`page-content ${sidebarIsOpen ? "expanded" : "narrow"}`}>
         {child}
       </main>
-    )
-  }
+    );
+  };
 
   return (
     <div className="layout">
       {Children.map(children, child => {
         return child.props.className === "section-sidebar"
           ? renderSidebar(child)
-          : renderContent(child)
+          : renderContent(child);
       })}
     </div>
-  )
-}
+  );
+};

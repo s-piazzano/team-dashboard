@@ -1,6 +1,6 @@
-import React from "react"
-import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon"
-import "./footer-social.scss"
+import React from "react";
+import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon";
+import "./footer-social.scss";
 
 export const FooterSocial = ({ links = [], iconColor, action }: any) => {
   return (
@@ -14,5 +14,5 @@ export const FooterSocial = ({ links = [], iconColor, action }: any) => {
         />
       ))}
     </footer>
-  )
-}
+  );
+};

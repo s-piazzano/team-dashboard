@@ -1,11 +1,11 @@
-import React from "react"
-import { FooterSocial } from "../../footer/footer-social/footer-social"
-import "smtp-webcomponents"
+import React from "react";
+import { FooterSocial } from "../../footer/footer-social/footer-social";
+import "smtp-webcomponents";
 
-import "./sidebar-menu.scss"
-import { MenuItemsList } from "../../lists/menu-items-list/menu-items-list"
-import { HeaderTitle } from "../../header/header-title/header-title"
-import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon"
+import "./sidebar-menu.scss";
+import { MenuItemsList } from "../../lists/menu-items-list/menu-items-list";
+import { HeaderTitle } from "../../header/header-title/header-title";
+import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon";
 
 export const SidebarMenu = ({
   items,
@@ -14,9 +14,9 @@ export const SidebarMenu = ({
   handleSidebarSocialLink,
   handleMenuSelection,
 }: any) => {
-  const logoUrl = "https://picsum.photos/300/200"
-  const title = "RainbowTech"
-  const subtitle = "Where code happens"
+  const logoUrl = "https://picsum.photos/300/200";
+  const title = "RainbowTech";
+  const subtitle = "Where code happens";
 
   return (
     <div className={`sidebar-menu ${sidebarIsOpen ? "expanded" : "narrow"}`}>
@@ -46,5 +46,5 @@ export const SidebarMenu = ({
         />
       ) : null}
     </div>
-  )
-}
+  );
+};

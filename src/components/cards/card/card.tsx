@@ -1,10 +1,10 @@
-import React from "react"
-import "./card.scss"
+import React from "react";
+import "./card.scss";
 
 export const Card = ({ title, description, imageUrl, projectUrl }: any) => {
   const handleProjectLink = () => {
-    window.open(projectUrl)
-  }
+    window.open(projectUrl);
+  };
 
   return (
     <button className="card" onClick={handleProjectLink}>
@@ -22,5 +22,5 @@ export const Card = ({ title, description, imageUrl, projectUrl }: any) => {
         </div>
       </div>
     </button>
-  )
-}
+  );
+};

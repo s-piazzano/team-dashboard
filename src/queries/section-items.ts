@@ -1,7 +1,7 @@
 import {
   cardsProfileListMock,
   cardsListMock,
-} from "../components/lists/card-list-view/card-list-view.mock"
+} from "../components/lists/card-list-view/card-list-view.mock";
 
 // export interface sectionInterface {
 //   title:
@@ -50,7 +50,7 @@ export const getSectionItemsQuery = (): Array<any> => [
     cards: cardsListMock,
     isSelected: false,
   },
-]
+];
 
 // = graphql`
 // {
