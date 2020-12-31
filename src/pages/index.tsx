@@ -1,36 +1,38 @@
-import React, { ReactElement } from "react"
-import { StaticQuery, graphql } from "gatsby"
+import React, { ReactElement } from "react";
+import { StaticQuery, graphql } from "gatsby";
 
-import { SidebarMenu } from "../components/sidebars/sidebar-menu/sidebar-menu"
+import { SidebarMenu } from "../components/sidebars/sidebar-menu/sidebar-menu";
 
-import { LayoutWithSidebar } from "../components/layouts/layout-with-sidebar/layout-with-sidebar"
-import { SinglePageContainer } from "../containers/single-page-container/single-page-container"
-import { menuItems, links, sections } from "./index.model"
+import { LayoutWithSidebar } from "../components/layouts/layout-with-sidebar/layout-with-sidebar";
+import { SinglePageContainer } from "../containers/single-page-container/single-page-container";
+import { menuItems, links, sections } from "./index.model";
 
-import "../../assets/scss/main.scss"
-import "./index.scss"
-import { MenuItemInterface } from "../queries/menu-items"
+import "../../assets/scss/main.scss";
+import "./index.scss";
+import { MenuItemInterface } from "../queries/menu-items";
 
 export default function Home({ data }: any): ReactElement<any> {
-  const fetchedItems: Array<MenuItemInterface> =
-    data?.strapiLeftMenu?.items || []
+  console.log("DATA FIRST FETCH", data);
 
-  const [items, updateMenuSelection] = React.useState(fetchedItems)
-  const [sidebarIsOpen, toggleSidebar] = React.useState(false)
+  const fetchedItems: Array<MenuItemInterface> =
+    data?.strapiLeftMenu?.items || [];
+
+  const [items, updateMenuSelection] = React.useState(fetchedItems);
+  const [sidebarIsOpen, toggleSidebar] = React.useState(false);
 
   const handleMenuSelection = (target: string) => {
     const updatedItems: Array<MenuItemInterface> = items.map(item =>
       item.section.name === target
         ? { ...item, isSelected: true }
         : { ...item, isSelected: false }
-    )
+    );
 
-    updateMenuSelection(updatedItems)
-  }
+    updateMenuSelection(updatedItems);
+  };
 
   const handleSocialLink = (url: string) => {
-    window.open(url)
-  }
+    window.open(url);
+  };
 
   return (
     <div className="page">
@@ -59,16 +61,28 @@ export default function Home({ data }: any): ReactElement<any> {
         />
       </LayoutWithSidebar>
     </div>
-  )
+  );
 }
 
+// MAYBE WOULD BE ENOUGH TO LOAD CARDS HERE AS WELL AND FILTER LATER IN COMPONENT
 export const query = graphql`
   {
+    strapiHomepage {
+      section {
+        description
+        id
+        title
+        card {
+          value
+        }
+      }
+    }
     strapiLeftMenu {
       items {
         icon
         id
         isSelected
+        value
         name
         section {
           name
@@ -76,4 +90,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

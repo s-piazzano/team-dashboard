@@ -1,4 +1,4 @@
-require("dotenv").config()
+require("dotenv").config();
 
 module.exports = {
   /* Your site config here */
@@ -8,11 +8,8 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL,
         queryLimit: 5000, // Default to 100
-        contentTypes: [],
-        singleTypes: [
-          `left-menu`,
-          `homepage`
-        ],
+        contentTypes: [`member`],
+        singleTypes: [`left-menu`, `homepage`],
       },
     },
     `gatsby-plugin-typescript`,
@@ -30,4 +27,4 @@ module.exports = {
       },
     },
   ],
-}
+};
