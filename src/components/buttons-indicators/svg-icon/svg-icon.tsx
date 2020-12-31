@@ -1,6 +1,6 @@
-import React from "react"
-import svgSprite from "../../../../assets/svg/sprite/symbol-defs.svg"
-import "./svg-icon.scss"
+import React from "react";
+import svgSprite from "../../../../assets/svg/sprite/symbol-defs.svg";
+import "./svg-icon.scss";
 
 export const SvgIcon = ({ iconName, iconColor, iconClick }: any) => {
   return (
@@ -16,5 +16,5 @@ export const SvgIcon = ({ iconName, iconColor, iconClick }: any) => {
     >
       <use href={`${svgSprite}#${iconName}`}></use>
     </svg>
-  )
-}
+  );
+};

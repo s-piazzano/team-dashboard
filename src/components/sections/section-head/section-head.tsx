@@ -1,5 +1,5 @@
-import React from "react"
-import "./section-head.scss"
+import React from "react";
+import "./section-head.scss";
 
 export const SectionHead = ({
   id,
@@ -32,5 +32,5 @@ export const SectionHead = ({
         </button>
       </div>
     </section>
-  )
-}
+  );
+};

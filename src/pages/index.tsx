@@ -1,36 +1,36 @@
-import React, { ReactElement } from "react"
-import { StaticQuery, graphql } from "gatsby"
+import React, { ReactElement } from "react";
+import { StaticQuery, graphql } from "gatsby";
 
-import { SidebarMenu } from "../components/sidebars/sidebar-menu/sidebar-menu"
+import { SidebarMenu } from "../components/sidebars/sidebar-menu/sidebar-menu";
 
-import { LayoutWithSidebar } from "../components/layouts/layout-with-sidebar/layout-with-sidebar"
-import { SinglePageContainer } from "../containers/single-page-container/single-page-container"
-import { menuItems, links, sections } from "./index.model"
+import { LayoutWithSidebar } from "../components/layouts/layout-with-sidebar/layout-with-sidebar";
+import { SinglePageContainer } from "../containers/single-page-container/single-page-container";
+import { menuItems, links, sections } from "./index.model";
 
-import "../../assets/scss/main.scss"
-import "./index.scss"
-import { MenuItemInterface } from "../queries/menu-items"
+import "../../assets/scss/main.scss";
+import "./index.scss";
+import { MenuItemInterface } from "../queries/menu-items";
 
 export default function Home({ data }: any): ReactElement<any> {
   const fetchedItems: Array<MenuItemInterface> =
-    data?.strapiLeftMenuItem?.item || []
+    data?.strapiLeftMenuItem?.item || [];
 
-  const [items, updateMenuSelection] = React.useState(fetchedItems)
-  const [sidebarIsOpen, toggleSidebar] = React.useState(false)
+  const [items, updateMenuSelection] = React.useState(fetchedItems);
+  const [sidebarIsOpen, toggleSidebar] = React.useState(false);
 
   const handleMenuSelection = (target: string) => {
     const updatedItems: Array<MenuItemInterface> = items.map(item =>
       item.value === target
         ? { ...item, isSelected: true }
         : { ...item, isSelected: false }
-    )
+    );
 
-    updateMenuSelection(updatedItems)
-  }
+    updateMenuSelection(updatedItems);
+  };
 
   const handleSocialLink = (url: string) => {
-    window.open(url)
-  }
+    window.open(url);
+  };
 
   return (
     <div className="page">
@@ -54,7 +54,7 @@ export default function Home({ data }: any): ReactElement<any> {
         />
       </LayoutWithSidebar>
     </div>
-  )
+  );
 }
 
 // export const query = graphql`

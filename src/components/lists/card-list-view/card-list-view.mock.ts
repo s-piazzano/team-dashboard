@@ -15,7 +15,7 @@ export const cardsListMock = [
     imageUrl: "https://picsum.photos/300/200",
     projectUrl: "https://gitlab.com/MarcoTerzolo/smtp-components.git",
   },
-]
+];
 
 export const cardsProfileListMock = [
   {
@@ -103,4 +103,4 @@ export const cardsProfileListMock = [
       },
     ],
   },
-]
+];
