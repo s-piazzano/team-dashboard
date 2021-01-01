@@ -2,6 +2,7 @@ import React from "react";
 import { SectionBody } from "../../components/sections/section-body/section-body";
 import "./single-page-container.scss";
 import { SectionHead } from "../../components/sections/section-head/section-head";
+import { graphql, StaticQuery } from "gatsby";
 
 export const SinglePageContainer = ({
   handleSocialLink,
@@ -11,7 +12,6 @@ export const SinglePageContainer = ({
 }: any) => {
   const sectionRefs = React.useRef([]);
   const selectedSection = items.find((item: any) => item.isSelected);
-
   const scrollHandler = () => {
     const sectionHeightsMapping = sections.map(
       (section: any, index: number) => {
@@ -50,7 +50,7 @@ export const SinglePageContainer = ({
         window.pageYOffset + 300 >= currentSection.min &&
         window.pageYOffset + 300 <= currentSection.max
       ) {
-        if (currentSection.value !== selectedSection.value) {
+        if (currentSection.value !== selectedSection.section.name) {
           handleScroll(currentSection.value);
         }
       }
@@ -91,19 +91,50 @@ export const SinglePageContainer = ({
     <div>
       {sections.map((section: any) => {
         const positionInMenu = items.findIndex(
-          (menuItem: any) => menuItem.value === section.id
+          (menuItem: any) => menuItem.section.name === section.id
         );
         return positionInMenu === -1 ? null : section.type ===
           "section-head" ? (
-          <SectionHead
+          <StaticQuery
             key={section.id}
-            id={section.id}
-            sectionRefs={sectionRefs}
-            positionInMenu={positionInMenu}
-            title={section.title}
-            bodyContent={section.bodyContent}
-            headAction={headAction}
-            buttonValue={section.buttonValue}
+            query={graphql`
+              {
+                allStrapiMember {
+                  edges {
+                    node {
+                      id
+                      fullname
+                      description
+                    }
+                  }
+                }
+              }
+            `}
+            render={data => {
+              console.log("INNER GRAPH CALL", data);
+
+              const imagineThisComesFromPreviousGraphCall = "Marco Terzolo";
+
+              const filteredByMarcoTerzolo = data.allStrapiMember.edges.filter(
+                edge =>
+                  edge.node.fullname === imagineThisComesFromPreviousGraphCall
+              );
+
+              console.log("FILTERED COLLECTION: MARCO", filteredByMarcoTerzolo);
+
+              return (
+                <SectionHead
+                  // key={section.id}
+                  id={section.id}
+                  sectionRefs={sectionRefs}
+                  positionInMenu={positionInMenu}
+                  title={section.title}
+                  bodyContent={section.bodyContent}
+                  headAction={headAction}
+                  buttonValue={section.buttonValue}
+                />
+              );
+            }}
           />
         ) : (
           <SectionBody

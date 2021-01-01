@@ -12,15 +12,17 @@ import "./index.scss";
 import { MenuItemInterface } from "../queries/menu-items";
 
 export default function Home({ data }: any): ReactElement<any> {
+  console.log("DATA FIRST FETCH", data);
+
   const fetchedItems: Array<MenuItemInterface> =
-    data?.strapiLeftMenuItem?.item || [];
+    data?.strapiLeftMenu?.items || [];
 
   const [items, updateMenuSelection] = React.useState(fetchedItems);
   const [sidebarIsOpen, toggleSidebar] = React.useState(false);
 
   const handleMenuSelection = (target: string) => {
     const updatedItems: Array<MenuItemInterface> = items.map(item =>
-      item.value === target
+      item.section.name === target
         ? { ...item, isSelected: true }
         : { ...item, isSelected: false }
     );
@@ -34,6 +36,11 @@ export default function Home({ data }: any): ReactElement<any> {
 
   return (
     <div className="page">
+      {/* <div className="zero"></div>
+      <div className="one"></div>
+      <div className="two"></div>
+      <div className="three"></div>
+      <div className="four"></div> */}
       <LayoutWithSidebar
         sidebarIsOpen={sidebarIsOpen}
         layoutAction={() => toggleSidebar(!sidebarIsOpen)}
@@ -57,15 +64,29 @@ export default function Home({ data }: any): ReactElement<any> {
   );
 }
 
+// MAYBE WOULD BE ENOUGH TO LOAD CARDS HERE AS WELL AND FILTER LATER IN COMPONENT
 export const query = graphql`
   {
+    strapiHomepage {
+      section {
+        description
+        id
+        title
+        card {
+          value
+        }
+      }
+    }
     strapiLeftMenu {
-      item {
+      items {
         icon
         id
         isSelected
-        name
         value
+        name
+        section {
+          name
+        }
       }
     }
   }

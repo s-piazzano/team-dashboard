@@ -1,9 +1,9 @@
-import React from "react";
-import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon";
-import "./menu-items-list.scss";
+import React from "react"
+import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon"
+import "./menu-items-list.scss"
 
 export const MenuItemsList = ({ items = [], mode, action }: any) => {
-  const isExpanded = mode === "expanded";
+  const isExpanded = mode === "expanded"
 
   return (
     <div className={`items-container ${isExpanded ? "" : "narrow"}`}>
@@ -11,12 +11,12 @@ export const MenuItemsList = ({ items = [], mode, action }: any) => {
         <button
           className={`menu-item ${item.isSelected ? "clicked" : ""}`}
           key={i}
-          onClick={() => action(item.value)}
+          onClick={() => action(item.section.name)}  
         >
           <div className="item-icon">
             {
               <SvgIcon
-                iconColor={item.isSelected ? "#a90926" : "#9a9b9c"}
+                iconColor={item.isSelected ? "#ad1f01" : "#e8e5e2"}
                 iconName={item.icon}
               ></SvgIcon>
             }
@@ -25,5 +25,5 @@ export const MenuItemsList = ({ items = [], mode, action }: any) => {
         </button>
       ))}
     </div>
-  );
-};
+  )
+}

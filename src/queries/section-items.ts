@@ -1,7 +1,7 @@
 import {
   cardsProfileListMock,
   cardsListMock,
-} from "../components/lists/card-list-view/card-list-view.mock";
+} from "../components/lists/card-list-view/card-list-view.mock"
 
 // export interface sectionInterface {
 //   title:
@@ -49,8 +49,17 @@ export const getSectionItemsQuery = (): Array<any> => [
       "Il maggior piacere nel fare qualcosa di nuovo sta nel pensiero di poterlo condividere",
     cards: cardsListMock,
     isSelected: false,
+  },    
+  {
+    type: "section-body",
+    id: "test",
+    title: "blog",
+    bodyContent:
+      "Il maggior piacere nel fare qualcosa di nuovo sta nel pensiero di poterlo condividere",
+    cards: cardsListMock,
+    isSelected: false,
   },
-];
+]
 
 // = graphql`
 // {

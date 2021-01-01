@@ -1,8 +1,11 @@
 export interface MenuItemInterface {
-  name: string;
-  icon: string;
-  value: string;
-  isSelected: boolean;
+  id: string
+  name: string
+  icon: string
+  isSelected: boolean
+  section: {
+    name: string
+  }
 }
 
 export const getMenuItemsQuery = (): Array<MenuItemInterface> => [
@@ -30,7 +33,7 @@ export const getMenuItemsQuery = (): Array<MenuItemInterface> => [
     value: "blog",
     isSelected: false,
   },
-];
+]
 
 // = graphql`
 // {
