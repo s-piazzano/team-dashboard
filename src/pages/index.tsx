@@ -65,7 +65,10 @@ export default function Home({ data }: any): ReactElement<any> {
   );
 }
 
-// MAYBE WOULD BE ENOUGH TO LOAD CARDS HERE AS WELL AND FILTER LATER IN COMPONENT
+// WE LOAD THE DATA WE NEED
+// WE FILTER LATER BY PARAMS WE NEED
+// IN HOME PAGE WE GET 'articles', 'projects' and long list limited by laste 3,4,6 elements
+// CARD ref will indicate if articles or other items are to be used
 export const query = graphql`
   {
     strapiHomepage {
