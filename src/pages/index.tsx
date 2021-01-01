@@ -54,6 +54,7 @@ export default function Home({ data }: any): ReactElement<any> {
           handleMenuSelection={handleMenuSelection}
         />
         <SinglePageContainer
+          allStrapiMember={data.allStrapiMember}
           items={items}
           sections={sections}
           handleScroll={handleMenuSelection}
@@ -86,6 +87,16 @@ export const query = graphql`
         name
         section {
           name
+        }
+      }
+    }
+
+    allStrapiMember {
+      edges {
+        node {
+          id
+          fullname
+          description
         }
       }
     }

@@ -5,6 +5,7 @@ import { SectionHead } from "../../components/sections/section-head/section-head
 import { graphql, StaticQuery } from "gatsby";
 
 export const SinglePageContainer = ({
+  allStrapiMember,
   handleSocialLink,
   handleScroll,
   items,
@@ -93,48 +94,28 @@ export const SinglePageContainer = ({
         const positionInMenu = items.findIndex(
           (menuItem: any) => menuItem.section.name === section.id
         );
+
+        console.log("INNER GRAPH CALL", allStrapiMember);
+
+        const imagineThisComesFromPreviousGraphCall = "Marco Terzolo";
+
+        const filteredByMarcoTerzolo = allStrapiMember.edges.filter(
+          edge => edge.node.fullname === imagineThisComesFromPreviousGraphCall
+        );
+
+        console.log("FILTERED COLLECTION: MARCO", filteredByMarcoTerzolo);
+
         return positionInMenu === -1 ? null : section.type ===
           "section-head" ? (
-          <StaticQuery
+          <SectionHead
             key={section.id}
-            query={graphql`
-              {
-                allStrapiMember {
-                  edges {
-                    node {
-                      id
-                      fullname
-                      description
-                    }
-                  }
-                }
-              }
-            `}
-            render={data => {
-              console.log("INNER GRAPH CALL", data);
-
-              const imagineThisComesFromPreviousGraphCall = "Marco Terzolo";
-
-              const filteredByMarcoTerzolo = data.allStrapiMember.edges.filter(
-                edge =>
-                  edge.node.fullname === imagineThisComesFromPreviousGraphCall
-              );
-
-              console.log("FILTERED COLLECTION: MARCO", filteredByMarcoTerzolo);
-
-              return (
-                <SectionHead
-                  // key={section.id}
-                  id={section.id}
-                  sectionRefs={sectionRefs}
-                  positionInMenu={positionInMenu}
-                  title={section.title}
-                  bodyContent={section.bodyContent}
-                  headAction={headAction}
-                  buttonValue={section.buttonValue}
-                />
-              );
-            }}
+            id={section.id}
+            sectionRefs={sectionRefs}
+            positionInMenu={positionInMenu}
+            title={section.title}
+            bodyContent={section.bodyContent}
+            headAction={headAction}
+            buttonValue={section.buttonValue}
           />
         ) : (
           <SectionBody
