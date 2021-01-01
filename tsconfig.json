@@ -1,7 +1,8 @@
 {
   "include": [
     "src/components",
-    "custom.d.ts"
+    "custom.d.ts",
+    "src/stories/myComponentForStoryBook.stories.js"
   ],
   "compilerOptions": {
     "module": "commonjs",

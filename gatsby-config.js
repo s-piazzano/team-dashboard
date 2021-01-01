@@ -1,4 +1,4 @@
-require("dotenv").config()
+require("dotenv").config();
 
 module.exports = {
   /* Your site config here */
@@ -27,4 +27,4 @@ module.exports = {
       },
     },
   ],
-}
+};
