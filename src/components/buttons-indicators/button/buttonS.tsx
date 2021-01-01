@@ -1,4 +1,5 @@
 import React from "react";
+import "./buttonS.scss";
 
 export const ButtonS = () => {
   return (
