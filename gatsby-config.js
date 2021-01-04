@@ -1,4 +1,4 @@
-require("dotenv").config();
+require('dotenv').config();
 
 module.exports = {
   /* Your site config here */
@@ -9,7 +9,7 @@ module.exports = {
         apiURL: process.env.API_URL,
         queryLimit: 5000, // Default to 100
         contentTypes: [`member`],
-        singleTypes: [`left-menu`],
+        singleTypes: [`left-menu`, `home-page-sections`],
       },
     },
     `gatsby-plugin-typescript`,
@@ -23,7 +23,7 @@ module.exports = {
           `roboto`,
           //`source sans pro\:300,400,400i,700` // you can also specify font weights and styles
         ],
-        display: "swap",
+        display: 'swap',
       },
     },
   ],
