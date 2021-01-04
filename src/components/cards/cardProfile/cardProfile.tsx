@@ -1,14 +1,22 @@
-import React from "react";
-import "./cardProfile.scss";
-import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon";
+import React from 'react';
+import './cardProfile.scss';
+import { SvgIcon } from '../../buttons-indicators/svg-icon/svg-icon';
 
-export const CardProfile = ({
+export interface CardProfileProps {
+  title: string;
+  description: string;
+  imageUrl: string;
+  profileLinks: [];
+  handleSocialLink: () => void;
+}
+
+export const CardProfile: React.FC<CardProfileProps> = ({
   title,
   description,
   imageUrl,
   profileLinks = [],
   handleSocialLink,
-}: any) => {
+}) => {
   return (
     <div className="cardProfile">
       <div className="card-container">
