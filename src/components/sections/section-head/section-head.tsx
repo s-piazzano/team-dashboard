@@ -1,4 +1,5 @@
 import React from "react";
+import { AnimatedButton } from "../../buttons-indicators/button/AnimatedButton";
 import "./section-head.scss";
 
 export const SectionHead = ({
@@ -24,12 +25,10 @@ export const SectionHead = ({
         <p>{bodyContent}</p>
       </div>
       <div className="head-button">
-        <button onClick={headAction}>
-          <svg>
-            <rect></rect>
-          </svg>
-          {buttonValue}
-        </button>
+        <AnimatedButton
+          action={headAction}
+          label={buttonValue}
+        ></AnimatedButton>
       </div>
     </section>
   );

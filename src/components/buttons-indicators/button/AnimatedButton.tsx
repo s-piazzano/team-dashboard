@@ -1,17 +1,15 @@
 import React from "react";
 import "./AnimatedButton.scss";
 
-export const AnimatedButton = () => {
+export const AnimatedButton = ({ action, label }: any) => {
   return (
-    <div className="button-wrapper">
-      <div className="head-button">
-        <button>
-          <svg>
-            <rect></rect>
-          </svg>
-          Button
-        </button>
-      </div>
+    <div className="head-button">
+      <button onClick={action}>
+        <svg>
+          <rect></rect>
+        </svg>
+        {label}
+      </button>
     </div>
   );
 };

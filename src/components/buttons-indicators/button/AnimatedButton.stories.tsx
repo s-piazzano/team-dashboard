@@ -13,6 +13,6 @@ const Template: Story<any> = args => <AnimatedButton {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  primary: true,
-  label: "Button",
+  action: () => console.log("pinco"),
+  label: "Pinco",
 };
