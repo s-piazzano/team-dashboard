@@ -1,3 +1,5 @@
+@import '../../../theme.scss';
+
 .cardProfile{
         
     border: unset;
@@ -11,7 +13,7 @@
     box-shadow: 0px 0px 15px -5px;
     transition: 0.5s;
     animation: ease-in;
-    background-color: white;
+    background-color: var(--LIGHT_COLOR);
   }
   
   .card-container:hover{
@@ -31,7 +33,6 @@
   
   .card-content{
     margin: 1rem;
-    // margin-top: 0.3rem;
   }
   
   h3, p{
@@ -57,7 +58,7 @@
   
   .btn button{
     padding: 0.5rem;
-    background-color: white;
+    background-color: var(--LIGHT_COLOR);
     border: none;
     transition: 0.2s;
     margin: 0.5rem;
@@ -68,15 +69,8 @@
     background: rgba(27, 156, 252, 0.1);
   }
   
-  a{
-    text-transform: uppercase;
-    color: #189CFC;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
   .social-container {
-    background: #ad1f01;
+    background: var(--SECONDARY_COLOR);
     padding: 25px 50px;
 
     h3{
@@ -86,7 +80,7 @@
   }
 
   .social {
-    fill: #e8e5e2;
+    fill: var(--LIGHT_COLOR);
     margin: 0 1rem;
     transition: transform 250ms;
     display: inline-block;

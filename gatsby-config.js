@@ -9,7 +9,7 @@ module.exports = {
         apiURL: process.env.API_URL,
         queryLimit: 5000, // Default to 100
         contentTypes: [`member`],
-        singleTypes: [`left-menu`, `homepage`],
+        singleTypes: [`left-menu`],
       },
     },
     `gatsby-plugin-typescript`,

@@ -71,16 +71,6 @@ export default function Home({ data }: any): ReactElement<any> {
 // CARD ref will indicate if articles or other items are to be used
 export const query = graphql`
   {
-    strapiHomepage {
-      section {
-        description
-        id
-        title
-        card {
-          value
-        }
-      }
-    }
     strapiLeftMenu {
       items {
         icon
@@ -105,3 +95,14 @@ export const query = graphql`
     }
   }
 `;
+
+// strapiHomepage {
+//   section {
+//     description
+//     id
+//     title
+//     card {
+//       value
+//     }
+//   }
+// }

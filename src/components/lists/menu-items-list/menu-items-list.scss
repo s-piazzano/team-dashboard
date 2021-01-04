@@ -1,3 +1,4 @@
+@import '../../../theme.scss';
 
 .items-container {
   height: calc(100% - 312px);
@@ -16,7 +17,7 @@
 
     &:hover {
       .item-label {
-        border-bottom: 2px solid #ad1f01;
+        border-bottom: 2px solid var(--SECONDARY_COLOR);
         transition: all ease .4s
       }
     }
@@ -29,14 +30,14 @@
     padding: 6px 20px;
     font-size: 20px;
     margin-top: 12px;
-    color: #9a9b9c;
+    color: var(--LIGHT_COLOR);
     height: 60px;
 
     &.clicked {
-      background-color: #e1e1e1;
+      background-color: var(--LIGHT_COLOR);
 
       p {
-        color: #ad1f01;
+        color: var(--SECONDARY_COLOR);
       }
     }
 
