@@ -1,6 +1,6 @@
-import React from "react";
-import { HeaderSection } from "../../header/header-section/header-section";
-import { CardListView } from "../../lists/card-list-view/card-list-view";
+import React from 'react';
+import { HeaderSection } from '../../header/header-section/header-section';
+import { CardListView } from '../../lists/card-list-view/card-list-view';
 
 export const SectionBody = ({
   section,
@@ -14,7 +14,7 @@ export const SectionBody = ({
       className="section-body"
       ref={ref => (sectionRefs.current[positionInMenu] = ref)}
     >
-      <HeaderSection title={section.title} description={section.bodyContent} />
+      <HeaderSection title={section.title} description={section.description} />
       <CardListView cards={section.cards} handleSocialLink={handleSocialLink} />
     </section>
   );

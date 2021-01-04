@@ -1,8 +1,8 @@
-import React from "react";
-import { SectionBody } from "../../components/sections/section-body/section-body";
-import "./single-page-container.scss";
-import { SectionHead } from "../../components/sections/section-head/section-head";
-import { graphql, StaticQuery } from "gatsby";
+import React from 'react';
+import { SectionBody } from '../../components/sections/section-body/section-body';
+import './single-page-container.scss';
+import { SectionHead } from '../../components/sections/section-head/section-head';
+import { graphql, StaticQuery } from 'gatsby';
 
 export const SinglePageContainer = ({
   allStrapiMember,
@@ -37,7 +37,7 @@ export const SinglePageContainer = ({
 
         // push to array the new object data
         return {
-          value: section.id,
+          value: section.value.name,
           min,
           max,
         };
@@ -76,44 +76,44 @@ export const SinglePageContainer = ({
     focusSection();
 
     // Scroll events for keeping updated navbar during user scroll
-    document.addEventListener("scroll", scrollHandler);
+    document.addEventListener('scroll', scrollHandler);
 
     // Remove listener (like componentWillUnmount)
     return () => {
-      document.removeEventListener("scroll", scrollHandler);
+      document.removeEventListener('scroll', scrollHandler);
     };
   });
 
   const headAction = () => {
-    alert("head action");
+    alert('head action');
   };
 
   return (
     <div>
       {sections.map((section: any) => {
         const positionInMenu = items.findIndex(
-          (menuItem: any) => menuItem.section.name === section.id
+          (menuItem: any) => menuItem.section.name === section.value.name
         );
 
-        console.log("INNER GRAPH CALL", allStrapiMember);
+        // console.log('INNER GRAPH CALL', allStrapiMember);
 
-        const imagineThisComesFromPreviousGraphCall = "Marco Terzolo";
+        // const imagineThisComesFromPreviousGraphCall = 'Marco Terzolo';
 
-        const filteredByMarcoTerzolo = allStrapiMember.edges.filter(
-          edge => edge.node.fullname === imagineThisComesFromPreviousGraphCall
-        );
+        // const filteredByMarcoTerzolo = allStrapiMember.edges.filter(
+        //   edge => edge.node.fullname === imagineThisComesFromPreviousGraphCall
+        // );
 
-        console.log("FILTERED COLLECTION: MARCO", filteredByMarcoTerzolo);
+        // console.log('FILTERED COLLECTION: MARCO', filteredByMarcoTerzolo);
 
         return positionInMenu === -1 ? null : section.type ===
-          "section-head" ? (
+          'section-head' ? (
           <SectionHead
             key={section.id}
             id={section.id}
             sectionRefs={sectionRefs}
             positionInMenu={positionInMenu}
             title={section.title}
-            bodyContent={section.bodyContent}
+            bodyContent={section.description}
             headAction={headAction}
             buttonValue={section.buttonValue}
           />
