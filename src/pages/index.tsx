@@ -13,9 +13,6 @@ import { MenuItemInterface } from '../queries/menu-items';
 
 export default function Home({ data }: any): ReactElement<any> {
   const fetchedSections = data.strapiHomePageSections.Sections;
-
-  console.log('DATA-----', data);
-
   const fetchedItems: Array<MenuItemInterface> =
     data?.strapiLeftMenu?.items || [];
 
@@ -122,12 +119,14 @@ export const query = graphql`
         title
         projectUrl
         description
+        published_at
         imageUrl
       }
     }
 
-    allStrapiArticles {
+    allStrapiArticles(sort: { order: DESC, fields: published_at }) {
       nodes {
+        published_at
         title
         subtitle
         description

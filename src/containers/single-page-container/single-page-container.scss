@@ -11,12 +11,14 @@ section {
   &:nth-child(even) {
     &.section-body {
       background-color: var(--THIRDARY_COLOR);
+      color: var(--LIGHT_COLOR);
     }
   }
 
   &:nth-child(odd) {
     &.section-body {
       background-color: var(--LIGHT_COLOR);
+      color: var(--DARK_COLOR);
     }
   }  
 }

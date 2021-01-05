@@ -1,6 +1,6 @@
-import React from "react";
-import { AnimatedButton } from "../../buttons-indicators/button/AnimatedButton";
-import "./section-head.scss";
+import React from 'react';
+import { AnimatedButton } from '../../buttons-indicators/button/AnimatedButton';
+import './section-head.scss';
 
 export const SectionHead = ({
   id,

@@ -138,7 +138,12 @@ export const SinglePageContainer = ({
         const sectionCards = [];
 
         if (hasCards && hasCardData) {
-          data[`allStrapi${section.cardsSource}`].nodes.forEach(sourceData =>
+          const targetItemsList = data[`allStrapi${section.cardsSource}`].nodes;
+
+          // truncate all elements after third value in array
+          targetItemsList.length = 3;
+
+          targetItemsList.forEach(sourceData =>
             sectionCards.push(createCard(sourceData, section.cardsSource))
           );
         }
