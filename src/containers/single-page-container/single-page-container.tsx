@@ -5,7 +5,7 @@ import { SectionHead } from '../../components/sections/section-head/section-head
 import { graphql, StaticQuery } from 'gatsby';
 
 export const SinglePageContainer = ({
-  allStrapiMember,
+  data,
   handleSocialLink,
   handleScroll,
   items,
@@ -88,6 +88,42 @@ export const SinglePageContainer = ({
     alert('head action');
   };
 
+  const createCard = (data, source) => {
+    switch (source) {
+      case 'Member':
+        return {
+          type: 'card-profile',
+          title: data.fullname,
+          description: data.description,
+          imageUrl: data.photo.childImageSharp.fluid.base64,
+          profileLinks: [
+            {
+              iconName: 'icon-linkedin',
+              url: 'https://www.linkedin.com/feed/',
+            },
+            {
+              iconName: 'icon-github',
+              url: 'https://github.com/',
+            },
+            {
+              iconName: 'icon-gitlab',
+              url: 'https://gitlab.com/VitaTiZ99',
+            },
+          ],
+        };
+      case 'Portfolio':
+        return {};
+      default:
+        return {
+          type: 'card',
+          title: data.title,
+          description: data.description,
+          imageUrl: data.imageUrl,
+          projectUrl: data.projectUrl,
+        };
+    }
+  };
+
   return (
     <div>
       {sections.map((section: any) => {
@@ -95,15 +131,17 @@ export const SinglePageContainer = ({
           (menuItem: any) => menuItem.section.name === section.value.name
         );
 
-        // console.log('INNER GRAPH CALL', allStrapiMember);
+        // debugger;
+        const hasCards = section.cardsSource;
+        const hasCardData = data[`allStrapi${section.cardsSource}`];
 
-        // const imagineThisComesFromPreviousGraphCall = 'Marco Terzolo';
+        const sectionCards = [];
 
-        // const filteredByMarcoTerzolo = allStrapiMember.edges.filter(
-        //   edge => edge.node.fullname === imagineThisComesFromPreviousGraphCall
-        // );
-
-        // console.log('FILTERED COLLECTION: MARCO', filteredByMarcoTerzolo);
+        if (hasCards && hasCardData) {
+          data[`allStrapi${section.cardsSource}`].nodes.forEach(sourceData =>
+            sectionCards.push(createCard(sourceData, section.cardsSource))
+          );
+        }
 
         return positionInMenu === -1 ? null : section.type ===
           'section-head' ? (
@@ -120,8 +158,11 @@ export const SinglePageContainer = ({
         ) : (
           <SectionBody
             key={section.id}
-            section={section}
+            id={section.id}
+            cards={sectionCards}
             sectionRefs={sectionRefs}
+            title={section.title}
+            description={section.description}
             positionInMenu={positionInMenu}
             handleSocialLink={handleSocialLink}
           />

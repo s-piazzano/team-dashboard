@@ -8,7 +8,7 @@ module.exports = {
       options: {
         apiURL: process.env.API_URL,
         queryLimit: 5000, // Default to 100
-        contentTypes: [`member`],
+        contentTypes: [`member`, `articles`, `projects`],
         singleTypes: [`left-menu`, `home-page-sections`],
       },
     },

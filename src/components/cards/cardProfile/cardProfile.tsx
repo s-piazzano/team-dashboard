@@ -1,6 +1,6 @@
-import React from "react";
-import "./cardProfile.scss";
-import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon";
+import React from 'react';
+import './cardProfile.scss';
+import { SvgIcon } from '../../buttons-indicators/svg-icon/svg-icon';
 
 export const CardProfile = ({
   title,

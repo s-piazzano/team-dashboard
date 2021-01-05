@@ -51,7 +51,7 @@ export default function Home({ data }: any): ReactElement<any> {
           handleMenuSelection={handleMenuSelection}
         />
         <SinglePageContainer
-          allStrapiMember={data.allStrapiMember}
+          data={data}
           items={items}
           sections={fetchedSections}
           handleScroll={handleMenuSelection}
@@ -83,6 +83,7 @@ export const query = graphql`
 
     strapiHomePageSections {
       Sections {
+        id
         type
         title
         isSelected
@@ -103,24 +104,80 @@ export const query = graphql`
     }
 
     allStrapiMember {
-      edges {
-        node {
-          id
+      nodes {
+        fullname
+        description
+        photo {
+          childImageSharp {
+            fluid {
+              base64
+            }
+          }
+        }
+      }
+    }
+
+    allStrapiProjects {
+      nodes {
+        title
+        projectUrl
+        description
+        imageUrl
+      }
+    }
+
+    allStrapiArticles {
+      nodes {
+        title
+        subtitle
+        description
+        imageUrl
+        Author {
           fullname
-          description
         }
       }
     }
   }
 `;
 
-// strapiHomepage {
-//   section {
-//     description
-//     id
-//     title
-//     card {
-//       value
-//     }
-//   }
+// const riga = {
+//   id: '0002',
+//   name: 'fanaleUniversale',
+//   category: 'AUTO > FANALI > POSTERIORI',
+//   category2: 'MOTO > FANALINI > POSTERIORI',
 // }
+
+// `
+// CATEGORIE [
+//   AUTO [
+//     MARMITTE
+//     FANALI [
+//       POSTERIORI
+//       ANTERIORI
+//     ]
+//     RUOTE
+//   ]
+
+//   MOTO
+//     MARMITTE
+//     RUOTE
+//     FANLINI
+//       ANTERIORI
+//       POSTERIORI
+// ]
+
+// `
+
+//  CATEGORIE forEach categories crea una lista <category lvl1>
+
+//     foreach livello 2 crea una lista di category
+
+//       foreach livello crea ua category di livello 3
+
+// LISTA PRODOTTI
+//  [
+//    riga1,
+//    riga2
+//  ]
+
+//  foreach riga => crea link al id prodotto all'interno di category[riga.lv1][riga.lvl2][riga.lvl3]
