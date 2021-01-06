@@ -25,10 +25,7 @@ export const SectionHead = ({
         <p>{bodyContent}</p>
       </div>
       <div className="head-button">
-        <AnimatedButton
-          action={headAction}
-          label={buttonValue}
-        ></AnimatedButton>
+        <AnimatedButton action={headAction} label={buttonValue} />
       </div>
     </section>
   );

@@ -86,10 +86,11 @@ export const query = graphql`
         isSelected
         description
         cardsSource
+        actionLabel
+        background_color
         value {
           name
         }
-        background_color
         backgroundImage {
           childImageSharp {
             fluid {

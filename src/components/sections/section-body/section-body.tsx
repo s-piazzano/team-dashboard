@@ -1,4 +1,5 @@
 import React from 'react';
+import { AnimatedButton } from '../../buttons-indicators/button/AnimatedButton';
 import { HeaderSection } from '../../header/header-section/header-section';
 import { CardListView } from '../../lists/card-list-view/card-list-view';
 
@@ -10,6 +11,8 @@ export const SectionBody = ({
   sectionRefs,
   positionInMenu,
   handleSocialLink,
+  action,
+  buttonValue,
 }: any) => {
   return (
     <section
@@ -19,6 +22,9 @@ export const SectionBody = ({
     >
       <HeaderSection title={title} description={description} />
       <CardListView cards={cards} handleSocialLink={handleSocialLink} />
+      {buttonValue ? (
+        <AnimatedButton action={action} label={buttonValue} />
+      ) : null}
     </section>
   );
 };
