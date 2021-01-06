@@ -1,13 +1,13 @@
-import React from "react";
-import firebase from "gatsby-plugin-firebase";
+import React from 'react';
+import firebase from 'gatsby-plugin-firebase';
 
 export default function About() {
-  const [data, setData] = React.useState("Loading...");
+  const [data, setData] = React.useState('Loading...');
 
   React.useEffect(() => {
     firebase
       .firestore()
-      .collection("data")
+      .collection('data')
       .get()
       .then(docs => {
         docs.forEach(documentSnapshot => {
