@@ -11,6 +11,12 @@ section {
     &.section-body {
       background-color: var(--THIRDARY_COLOR);
       color: var(--LIGHT_COLOR);
+      
+      // .head-button{
+      //   button{
+      //     color: var(--PRIMARY_COLOR)
+      //   }
+      // }
     }
   }
 
@@ -18,6 +24,15 @@ section {
     &.section-body {
       background-color: var(--LIGHT_COLOR);
       color: var(--DARK_COLOR);
+
+      .head-button{
+        button{
+          color: var(--PRIMARY_COLOR)
+        }
+        rect{
+          stroke: var(--PRIMARY_COLOR)
+        }
+      }
     }
   }  
 
@@ -29,6 +44,15 @@ section {
       background: url('https://images.pexels.com/photos/2330137/pexels-photo-2330137.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
       background-size: cover;
       background-position: center;
+
+      .head-button{
+        button{
+          color: var(--LIGHT_COLOR)
+        }
+        rect{
+          stroke: var(--LIGHT_COLOR)
+        }
+      }
     }
   }  
 }
