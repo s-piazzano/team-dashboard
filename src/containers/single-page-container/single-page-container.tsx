@@ -158,7 +158,7 @@ export const SinglePageContainer = ({
             title={section.title}
             bodyContent={section.description}
             headAction={headAction}
-            buttonValue={section.buttonValue}
+            buttonValue={section.actionLabel}
           />
         ) : (
           <SectionBody
@@ -170,6 +170,7 @@ export const SinglePageContainer = ({
             description={section.description}
             positionInMenu={positionInMenu}
             handleSocialLink={handleSocialLink}
+            buttonValue={section.actionLabel}
           />
         );
       })}
