@@ -82,8 +82,8 @@ export const SinglePageContainer = ({
     };
   });
 
-  const headAction = () => {
-    alert('head action');
+  const sectionAction = () => {
+    alert('section action');
   };
 
   const createCard = (data, source) => {
@@ -155,7 +155,7 @@ export const SinglePageContainer = ({
             description={section.description}
             positionInMenu={positionInMenu}
             handleSocialLink={handleSocialLink}
-            headAction={headAction}
+            action={sectionAction}
             buttonValue={section.actionLabel}
           />
         ) : null;
