@@ -1,8 +1,6 @@
 import React from 'react';
 import { SectionBody } from '../../components/sections/section-body/section-body';
 import './single-page-container.scss';
-import { SectionHead } from '../../components/sections/section-head/section-head';
-import { graphql, StaticQuery } from 'gatsby';
 
 export const SinglePageContainer = ({
   data,
@@ -131,7 +129,6 @@ export const SinglePageContainer = ({
           (menuItem: any) => menuItem.section.name === section.value.name
         );
 
-        // debugger;
         const hasCards = section.cardsSource;
         const hasCardData = data[`allStrapi${section.cardsSource}`];
 
@@ -148,19 +145,7 @@ export const SinglePageContainer = ({
           );
         }
 
-        return positionInMenu === -1 ? null : section.type ===
-          'section-head' ? (
-          <SectionHead
-            key={section.id}
-            id={section.id}
-            sectionRefs={sectionRefs}
-            positionInMenu={positionInMenu}
-            title={section.title}
-            bodyContent={section.description}
-            headAction={headAction}
-            buttonValue={section.actionLabel}
-          />
-        ) : (
+        return positionInMenu !== -1 ? (
           <SectionBody
             key={section.id}
             id={section.id}
@@ -170,9 +155,10 @@ export const SinglePageContainer = ({
             description={section.description}
             positionInMenu={positionInMenu}
             handleSocialLink={handleSocialLink}
+            headAction={headAction}
             buttonValue={section.actionLabel}
           />
-        );
+        ) : null;
       })}
     </div>
   );

@@ -1,5 +1,5 @@
-import React from "react";
-import "./header-section.scss";
+import React from 'react';
+import './header-section.scss';
 
 export const HeaderSection = ({ title, description }: any) => {
   return (
