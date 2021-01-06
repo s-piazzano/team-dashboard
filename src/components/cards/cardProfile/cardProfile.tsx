@@ -7,7 +7,7 @@ export interface CardProfileProps {
   description: string;
   imageUrl: string;
   profileLinks: [];
-  handleSocialLink: () => void;
+  handleSocialLink: (url: string) => void;
 }
 
 export const CardProfile: React.FC<CardProfileProps> = ({

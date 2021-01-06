@@ -1,8 +1,8 @@
-import React from "react";
-import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon";
-import { Card } from "../../cards/card/card";
-import { CardProfile } from "../../cards/cardProfile/cardProfile";
-import "./card-list-view.scss";
+import React from 'react';
+import { SvgIcon } from '../../buttons-indicators/svg-icon/svg-icon';
+import { Card } from '../../cards/card/card';
+import { CardProfile } from '../../cards/cardProfile/cardProfile';
+import './card-list-view.scss';
 
 export const CardListView = ({ cards = [], handleSocialLink }: any) => {
   return (
@@ -10,7 +10,7 @@ export const CardListView = ({ cards = [], handleSocialLink }: any) => {
       {cards.map(({ type, ...rest }: any, i: number) => {
         return (
           <div className="card-wrapper" key={i}>
-            {type === "card" ? (
+            {type === 'card' ? (
               <Card {...rest} />
             ) : (
               <CardProfile {...rest} handleSocialLink={handleSocialLink} />
