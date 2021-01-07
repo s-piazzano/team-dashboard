@@ -12,6 +12,8 @@ import './index.scss';
 import { MenuItemInterface } from '../queries/menu-items';
 
 export default function Home({ data }: any): ReactElement<any> {
+  console.log('DATA', data);
+
   const fetchedSections = data.strapiHomePageSections.Sections;
   const fetchedItems: Array<MenuItemInterface> =
     data?.strapiLeftMenu?.items || [];
@@ -30,7 +32,8 @@ export default function Home({ data }: any): ReactElement<any> {
   };
 
   const handleSocialLink = (url: string) => {
-    window.open(url);
+    // debugger;
+    window.open(url, '_blank');
   };
 
   return (
@@ -105,10 +108,16 @@ export const query = graphql`
       nodes {
         fullname
         description
+        socials {
+          icon
+          url
+          value
+        }
         photo {
           childImageSharp {
-            fluid {
+            fluid(fit: COVER) {
               base64
+              src
             }
           }
         }
@@ -122,6 +131,13 @@ export const query = graphql`
         description
         published_at
         imageUrl
+        image {
+          childImageSharp {
+            fluid(fit: COVER) {
+              src
+            }
+          }
+        }
       }
     }
 

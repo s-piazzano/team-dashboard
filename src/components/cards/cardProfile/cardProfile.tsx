@@ -6,7 +6,7 @@ export interface CardProfileProps {
   title: string;
   description: string;
   imageUrl: string;
-  profileLinks: [];
+  profileLinks: Array<any>;
   handleSocialLink: (url: string) => void;
 }
 
@@ -38,7 +38,7 @@ export const CardProfile: React.FC<CardProfileProps> = ({
             {profileLinks.map((link: any, i: number) => (
               <div className="social" key={i}>
                 <SvgIcon
-                  iconName={link.iconName}
+                  iconName={link.icon}
                   iconClick={() => handleSocialLink(link.url)}
                 />
               </div>

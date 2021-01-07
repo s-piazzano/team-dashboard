@@ -93,21 +93,8 @@ export const SinglePageContainer = ({
           type: 'card-profile',
           title: data.fullname,
           description: data.description,
-          imageUrl: data.photo.childImageSharp.fluid.base64,
-          profileLinks: [
-            {
-              iconName: 'icon-linkedin',
-              url: 'https://www.linkedin.com/feed/',
-            },
-            {
-              iconName: 'icon-github',
-              url: 'https://github.com/',
-            },
-            {
-              iconName: 'icon-gitlab',
-              url: 'https://gitlab.com/VitaTiZ99',
-            },
-          ],
+          imageUrl: data.photo?.childImageSharp?.fluid?.src,
+          profileLinks: data.socials,
         };
       case 'Portfolio':
         return {};
@@ -116,7 +103,7 @@ export const SinglePageContainer = ({
           type: 'card',
           title: data.title,
           description: data.description,
-          imageUrl: data.imageUrl,
+          imageUrl: data.image?.childImageSharp?.fluid?.src,
           projectUrl: data.projectUrl,
         };
     }
@@ -135,6 +122,7 @@ export const SinglePageContainer = ({
         const sectionCards = [];
 
         if (hasCards && hasCardData) {
+          debugger;
           const targetItemsList = data[`allStrapi${section.cardsSource}`].nodes;
 
           // truncate all elements after third value in array
