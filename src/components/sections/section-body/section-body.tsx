@@ -13,12 +13,14 @@ export const SectionBody = ({
   handleSocialLink,
   action,
   buttonValue,
+  backgroundImage,
 }: any) => {
   return (
     <section
       id={id}
       className="section-body"
       ref={ref => (sectionRefs.current[positionInMenu] = ref)}
+      style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <HeaderSection title={title} description={description} />
       <CardListView cards={cards} handleSocialLink={handleSocialLink} />

@@ -122,7 +122,6 @@ export const SinglePageContainer = ({
         const sectionCards = [];
 
         if (hasCards && hasCardData) {
-          debugger;
           const targetItemsList = data[`allStrapi${section.cardsSource}`].nodes;
 
           // truncate all elements after third value in array
@@ -143,8 +142,11 @@ export const SinglePageContainer = ({
             description={section.description}
             positionInMenu={positionInMenu}
             handleSocialLink={handleSocialLink}
-            action={sectionAction}
             buttonValue={section.actionLabel}
+            backgroundImage={
+              section.backgroundImage?.childImageSharp?.fluid?.src
+            }
+            action={sectionAction}
           />
         ) : null;
       })}

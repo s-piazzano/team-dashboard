@@ -6,17 +6,13 @@ section {
   flex-direction: column;
   align-items: center;
   padding: 48px 64px;
+  background-size: cover;
+  background-position: center;
 
   &:nth-child(even) {
     &.section-body {
       background-color: var(--THIRDARY_COLOR);
       color: var(--LIGHT_COLOR);
-      
-      // .head-button{
-      //   button{
-      //     color: var(--PRIMARY_COLOR)
-      //   }
-      // }
     }
   }
 
@@ -41,9 +37,6 @@ section {
       background-color: var(--LIGHT_COLOR);
       color: var(--LIGHT_COLOR);
       height: 600px;
-      background: url('https://images.pexels.com/photos/2330137/pexels-photo-2330137.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260');
-      background-size: cover;
-      background-position: center;
 
       .head-button{
         button{
