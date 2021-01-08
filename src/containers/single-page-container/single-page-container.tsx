@@ -125,7 +125,10 @@ export const SinglePageContainer = ({
           const targetItemsList = data[`allStrapi${section.cardsSource}`].nodes;
 
           // truncate all elements after third value in array
-          targetItemsList.length = 3;
+          // but not in members list
+          if (section.cardsSource !== 'Member') {
+            targetItemsList.length = 3;
+          }
 
           targetItemsList.forEach(sourceData =>
             sectionCards.push(createCard(sourceData, section.cardsSource))
