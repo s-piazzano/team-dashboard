@@ -14,7 +14,8 @@ export const SidebarMenu = ({
   handleSidebarSocialLink,
   handleMenuSelection,
 }: any) => {
-  const logoUrl = 'https://picsum.photos/300/200';
+  const logoUrl =
+    'https://previews.123rf.com/images/mamanamsai/mamanamsai1511/mamanamsai151100435/48391186-progettazione-di-ingranaggi-concetto-arcobaleno-vettore-pulito.jpg'; /* 'https://picsum.photos/300/200' */
   const title = 'RainbowTech';
   const subtitle = 'Where code happens';
 

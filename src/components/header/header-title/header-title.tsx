@@ -1,8 +1,8 @@
-import React from "react";
-import "./header-title.scss";
+import React from 'react';
+import './header-title.scss';
 
 export const HeaderTitle = ({ logoUrl, title, subtitle, mode }: any) => {
-  const isExpanded = mode === "expanded";
+  const isExpanded = mode === 'expanded';
 
   return (
     <div className="header">
@@ -10,8 +10,8 @@ export const HeaderTitle = ({ logoUrl, title, subtitle, mode }: any) => {
         src={logoUrl}
         alt=""
         style={{
-          width: isExpanded ? "64px" : "40px",
-          height: isExpanded ? "64px" : "40px",
+          width: isExpanded ? '64px' : '40px',
+          height: isExpanded ? '64px' : '40px',
         }}
       />
       {isExpanded ? (
