@@ -140,6 +140,7 @@ export const SinglePageContainer = ({
             key={section.id}
             id={section.id}
             cards={sectionCards}
+            cardsMode={section.cardsSource === 'Member' ? 'carousel' : 'normal'}
             sectionRefs={sectionRefs}
             title={section.title}
             description={section.description}

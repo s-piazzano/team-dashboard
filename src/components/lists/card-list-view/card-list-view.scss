@@ -7,4 +7,13 @@
 	.card-wrapper {
 		padding: 16px;
 	}
+
+	.card-wrapper:focus{
+		outline: none;
+	}
+
+	.slick-list {
+		width: 1400px;
+	}
+	  
 }

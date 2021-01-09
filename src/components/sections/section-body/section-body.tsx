@@ -14,6 +14,7 @@ export const SectionBody = ({
   action,
   buttonValue,
   backgroundImage,
+  cardsMode,
 }: any) => {
   return (
     <section
@@ -23,7 +24,11 @@ export const SectionBody = ({
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <HeaderSection title={title} description={description} />
-      <CardListView cards={cards} handleSocialLink={handleSocialLink} />
+      <CardListView
+        cards={cards}
+        handleSocialLink={handleSocialLink}
+        mode={cardsMode}
+      />
       {buttonValue ? (
         <AnimatedButton action={action} label={buttonValue} />
       ) : null}
