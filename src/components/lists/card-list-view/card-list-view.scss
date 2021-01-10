@@ -1,8 +1,10 @@
 .card-list-container{
 	display: flex;
+	align-items: center;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: center;
 	margin-bottom: 50px;
+	// height: 100vh;
 
 	.card-wrapper {
 		padding: 16px;
@@ -14,6 +16,25 @@
 
 	.slick-list {
 		width: 1400px;
+	}
+	
+	.ewJlEB{
+		width: 1200px;
+
+		.rec-carousel{
+			button{
+			color: white;
+			  background-color: transparent;
+			  border-radius: 0%;
+			  box-shadow: none;
+			}
+		
+			button:hover{
+			  background-color: unset;
+			  box-shadow: unset;
+			  color: unset;
+			}
+		}
 	}
 	  
 }

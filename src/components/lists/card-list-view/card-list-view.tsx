@@ -6,68 +6,37 @@ import './card-list-view.scss';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Carousel from 'react-elastic-carousel';
+import styled from 'styled-components';
 
 export const CardListView = ({
   cards = [],
   handleSocialLink,
   mode = 'normal',
 }: any) => {
-  const settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  const breakPoints = [
+    { width: 1, itemsToShow: 1, itemsToScroll: 3 },
+    { width: 550, itemsToShow: 2, itemsToScroll: 3 },
+    { width: 768, itemsToShow: 3, itemsToScroll: 3 },
+    { width: 1200, itemsToShow: 3, itemsToScroll: 3 },
+  ];
 
   return (
     <div className="card-list-container">
       {mode === 'carousel' ? (
-        <div className="carousel-container">
-          <Slider {...settings}>
-            {cards.map(({ type, ...rest }: any, i: number) => {
-              return (
-                <div className="card-wrapper" key={i}>
-                  {type === 'card' ? (
-                    <Card {...rest} />
-                  ) : (
-                    <CardProfile
-                      {...rest}
-                      handleSocialLink={handleSocialLink}
-                    />
-                  )}
-                </div>
-              );
-            })}
-          </Slider>
-        </div>
+        <Carousel breakPoints={breakPoints}>
+          {cards.map(({ type, ...rest }: any, i: number) => {
+            return (
+              <div className="card-wrapper" key={i}>
+                {type === 'card' ? (
+                  <Card {...rest} />
+                ) : (
+                  <CardProfile {...rest} handleSocialLink={handleSocialLink} />
+                )}
+              </div>
+            );
+          })}
+        </Carousel>
       ) : (
         cards.map(({ type, ...rest }: any, i: number) => {
           return (
