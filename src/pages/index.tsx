@@ -5,14 +5,16 @@ import { SidebarMenu } from '../components/sidebars/sidebar-menu/sidebar-menu';
 
 import { LayoutWithSidebar } from '../components/layouts/layout-with-sidebar/layout-with-sidebar';
 import { SinglePageContainer } from '../containers/single-page-container/single-page-container';
-import { menuItems, links, sections } from './index.model';
 
 import '../../assets/scss/main.scss';
 import './index.scss';
 import { MenuItemInterface } from '../queries/menu-items';
+import { getFooterLinksQuery } from '../queries/footer-links';
 
 export default function Home({ data }: any): ReactElement<any> {
   console.log('DATA', data);
+
+  const links = getFooterLinksQuery();
 
   const fetchedSections = data.strapiHomePageSections.Sections;
   const fetchedItems: Array<MenuItemInterface> =
@@ -33,7 +35,8 @@ export default function Home({ data }: any): ReactElement<any> {
 
   const handleSocialLink = (url: string) => {
     // debugger;
-    window.open(url, '_blank');
+    alert(url);
+    // window.open(url, '_blank');
   };
 
   return (
