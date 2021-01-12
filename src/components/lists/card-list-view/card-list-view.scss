@@ -12,8 +12,19 @@
 		outline: none;
 	}
 
-	.slick-list {
-		width: 1400px;
+	.slider {
+		display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: calc(100vw - 180px);
+    margin-left: 32px;
+    margin-right: 32px;
 	}
-	  
+	
+	.slick-slider {
+		max-width: calc(100vw - 260px);
+    // padding-left: 80px;
+	}
+
+
 }
