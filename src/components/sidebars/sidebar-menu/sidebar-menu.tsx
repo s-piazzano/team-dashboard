@@ -1,6 +1,5 @@
 import React from 'react';
 import { FooterSocial } from '../../footer/footer-social/footer-social';
-import 'smtp-webcomponents';
 
 import './sidebar-menu.scss';
 import { MenuItemsList } from '../../lists/menu-items-list/menu-items-list';

@@ -15,16 +15,16 @@ export const CardListView = ({
   mode = 'normal',
 }: any) => {
   const breakPoints = [
-    { width: 1, itemsToShow: 1, itemsToScroll: 3 },
-    { width: 550, itemsToShow: 2, itemsToScroll: 3 },
-    { width: 768, itemsToShow: 3, itemsToScroll: 3 },
+    { width: 550, itemsToShow: 1, itemsToScroll: 3 },
+    { width: 768, itemsToShow: 2, itemsToScroll: 3 },
     { width: 1200, itemsToShow: 3, itemsToScroll: 3 },
+    // { width: 1200, itemsToShow: 3, itemsToScroll: 3 },
   ];
 
   return (
     <div className="card-list-container">
       {mode === 'carousel' ? (
-        <Carousel breakPoints={breakPoints}>
+        <Carousel isRTL={true} breakPoints={breakPoints}>
           {cards.map(({ type, ...rest }: any, i: number) => {
             return (
               <div className="card-wrapper" key={i}>
