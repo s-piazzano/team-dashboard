@@ -1,8 +1,10 @@
 @import '../../../theme.scss';
 
 .items-container {
-  // height: calc(100% - 312px);
-  margin-top: 48px;
+  height: calc(100% - 264px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   button {
     background-color: unset;
@@ -33,7 +35,7 @@
     color: var(--LIGHT_COLOR);
     height: 60px;
 
-    &.clicked {
+    &:hover {
       background-color: var(--LIGHT_COLOR);
 
       p {

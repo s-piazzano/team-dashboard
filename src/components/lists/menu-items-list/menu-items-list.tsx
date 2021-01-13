@@ -16,7 +16,7 @@ export const MenuItemsList = ({ items = [], mode, action }: any) => {
     computedStyles.selected = computedValues.getPropertyValue(
       '--SECONDARY_COLOR'
     );
-    computedStyles.regular = computedValues.getPropertyValue('--LIGHT_COLOR');
+    computedStyles.regular = computedValues.getPropertyValue('--GREY_COLOR');
   }
   return (
     <div
@@ -25,7 +25,7 @@ export const MenuItemsList = ({ items = [], mode, action }: any) => {
     >
       {items.map((item: any, i: number) => (
         <button
-          className={`menu-item ${item.isSelected ? 'clicked' : ''}`}
+          className={`menu-item`} // ${item.isSelected ? 'clicked' : ''}
           key={i}
           onClick={() => action(item.section.name)}
         >
@@ -34,8 +34,8 @@ export const MenuItemsList = ({ items = [], mode, action }: any) => {
               <SvgIcon
                 iconColor={
                   item.isSelected
-                    ? computedStyles.selected || 'black'
-                    : computedStyles.regular || 'white'
+                    ? computedStyles.selected || '#ad1f01'
+                    : computedStyles.regular || 'lightgrey'
                 }
                 iconName={item.icon}
               ></SvgIcon>

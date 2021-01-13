@@ -36,13 +36,15 @@ export const LayoutWithSidebar = ({
 
   return (
     <div className="layout">
-      <div className="menu">
-        <SvgIcon
-          iconName="icon-menu"
-          iconColor="#fff"
-          iconClick={layoutAction}
-        />
-      </div>
+      {!sidebarIsOpen ? (
+        <div className="menu">
+          <SvgIcon
+            iconName="icon-menu"
+            iconColor="#fff"
+            iconClick={layoutAction}
+          />
+        </div>
+      ) : null}
       {Children.map(children, child => {
         return child.props.className === 'section-sidebar'
           ? renderSidebar(child)
