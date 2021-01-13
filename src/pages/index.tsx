@@ -57,6 +57,7 @@ export default function Home({ data }: any): ReactElement<any> {
           data={data}
           items={items}
           sections={fetchedSections}
+          sidebarIsOpen={sidebarIsOpen}
           handleScroll={handleMenuSelection}
           handleSocialLink={handleSocialLink}
         />

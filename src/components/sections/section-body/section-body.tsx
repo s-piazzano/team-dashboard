@@ -15,6 +15,7 @@ export const SectionBody = ({
   buttonValue,
   backgroundImage,
   cardsMode,
+  sidebarIsOpen,
 }: any) => {
   return (
     <section
@@ -28,6 +29,7 @@ export const SectionBody = ({
         cards={cards}
         handleSocialLink={handleSocialLink}
         mode={cardsMode}
+        sidebarIsOpen={sidebarIsOpen}
       />
       {buttonValue ? (
         <AnimatedButton action={action} label={buttonValue} />

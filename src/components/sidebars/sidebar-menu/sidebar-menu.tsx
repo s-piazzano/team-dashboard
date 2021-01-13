@@ -20,18 +20,22 @@ export const SidebarMenu = ({
 
   return (
     <div className={`sidebar-menu ${sidebarIsOpen ? 'expanded' : 'narrow'}`}>
-      <HeaderTitle
-        logoUrl={logoUrl}
-        title={title}
-        subtitle={subtitle}
-        mode={sidebarIsOpen ? 'expanded' : 'narrow'}
-      />
-      <button className="login" onClick={() => alert('login')}>
-        {' '}
-        {/* // TODO this will open a dialog to perform login. Login will enable more page options */}
-        <SvgIcon iconColor="#e1e1e1" iconName="icon-user-circle-o" />
-        <p className="login-label">LOGIN</p>
-      </button>
+      {sidebarIsOpen ? (
+        <>
+          <HeaderTitle
+            logoUrl={logoUrl}
+            title={title}
+            subtitle={subtitle}
+            mode={sidebarIsOpen ? 'expanded' : 'narrow'}
+          />
+          <button className="login" onClick={() => alert('login')}>
+            {' '}
+            {/* // TODO this will open a dialog to perform login. Login will enable more page options */}
+            <SvgIcon iconColor="#e1e1e1" iconName="icon-user-circle-o" />
+            <p className="login-label">LOGIN</p>
+          </button>
+        </>
+      ) : null}
       <MenuItemsList
         items={items}
         action={handleMenuSelection}

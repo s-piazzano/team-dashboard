@@ -3,6 +3,7 @@
 	flex-wrap: wrap;
 	justify-content: space-around;
 	margin-bottom: 50px;
+	position: relative;
 
 	.card-wrapper {
 		padding: 16px;
@@ -17,14 +18,16 @@
     overflow-x: auto;
     overflow-y: hidden;
     max-width: calc(100vw - 180px);
-    margin-left: 32px;
-    margin-right: 32px;
-	}
-	
-	.slick-slider {
-		max-width: calc(100vw - 260px);
-    // padding-left: 80px;
+    margin-left: 40px;
+		margin-right: 40px;
+
+		&.narrow {
+			max-width: calc(100vw - 400px);
+		}
 	}
 
+	.slider::-webkit-scrollbar {
+		display: none;
+	}
 
 }

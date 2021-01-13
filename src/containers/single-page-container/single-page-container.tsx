@@ -8,6 +8,7 @@ export const SinglePageContainer = ({
   handleScroll,
   items,
   sections,
+  sidebarIsOpen,
 }: any) => {
   const sectionRefs = React.useRef([]);
   const selectedSection = items.find((item: any) => item.isSelected);
@@ -62,9 +63,7 @@ export const SinglePageContainer = ({
   const focusSection = () => {
     items.forEach((item: any, i: number) => {
       if (item.isSelected) {
-        (sectionRefs as any).current[
-          i
-        ].scrollIntoView(/* {behavior: "smooth"} */);
+        (sectionRefs as any).current[i].scrollIntoView({ behavior: 'smooth' });
       }
     });
   };
@@ -74,11 +73,11 @@ export const SinglePageContainer = ({
     focusSection();
 
     // Scroll events for keeping updated navbar during user scroll
-    document.addEventListener('scroll', scrollHandler);
+    // document.addEventListener('scroll', scrollHandler);
 
     // Remove listener (like componentWillUnmount)
     return () => {
-      document.removeEventListener('scroll', scrollHandler);
+      // document.removeEventListener('scroll', scrollHandler);
     };
   });
 
@@ -139,6 +138,7 @@ export const SinglePageContainer = ({
           <SectionBody
             key={section.id}
             id={section.id}
+            sidebarIsOpen={sidebarIsOpen}
             cards={sectionCards}
             cardsMode={section.cardsSource === 'Member' ? 'carousel' : 'normal'}
             sectionRefs={sectionRefs}

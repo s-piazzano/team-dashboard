@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { StyleHTMLAttributes } from 'react';
 import svgSprite from '../../../../assets/svg/sprite/symbol-defs.svg';
 import './svg-icon.scss';
 
@@ -12,6 +12,10 @@ export interface SvgIconProps {
    */
   iconColor?: string;
   /**
+   * Additional styles
+   */
+  style?: Record<string, unknown>;
+  /**
    * Optional click handler
    */
   iconClick?: () => void;
@@ -19,6 +23,7 @@ export interface SvgIconProps {
 export const SvgIcon: React.FC<SvgIconProps> = ({
   iconName = 'icon-github',
   iconColor,
+  style = {},
   iconClick,
 }) => {
   return (
@@ -26,6 +31,7 @@ export const SvgIcon: React.FC<SvgIconProps> = ({
       className={'svg-icon ' + iconName}
       onClick={iconClick}
       style={{
+        ...style,
         fill: iconColor,
         height: '26px',
         width: '26px',

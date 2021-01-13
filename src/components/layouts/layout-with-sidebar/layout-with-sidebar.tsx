@@ -1,7 +1,7 @@
-import React, { Children } from "react";
-import { SvgIcon } from "../../buttons-indicators/svg-icon/svg-icon";
+import React, { Children } from 'react';
+import { SvgIcon } from '../../buttons-indicators/svg-icon/svg-icon';
 
-import "./layout-with-sidebar.scss";
+import './layout-with-sidebar.scss';
 
 export const LayoutWithSidebar = ({
   children,
@@ -11,18 +11,16 @@ export const LayoutWithSidebar = ({
   const renderSidebar = (child: any) => {
     return (
       <aside
-        className={`sidebar-container ${sidebarIsOpen ? "expanded" : "narrow"}`}
+        className={`sidebar-container ${sidebarIsOpen ? 'expanded' : 'narrow'}`}
       >
-        <div
-          className={`sidebar-toggle ${
-            sidebarIsOpen ? "icon-left" : "icon-right"
-          }`}
-        >
-          <SvgIcon
-            iconName="icon-arrow-circle-right"
-            iconClick={layoutAction}
-          />
-        </div>
+        {sidebarIsOpen ? (
+          <div className={`sidebar-toggle icon-left`}>
+            <SvgIcon
+              iconName="icon-arrow-circle-right"
+              iconClick={layoutAction}
+            />
+          </div>
+        ) : null}
         {child}
       </aside>
     );
@@ -30,7 +28,7 @@ export const LayoutWithSidebar = ({
 
   const renderContent = (child: any) => {
     return (
-      <main className={`page-content ${sidebarIsOpen ? "expanded" : "narrow"}`}>
+      <main className={`page-content ${sidebarIsOpen ? 'expanded' : 'narrow'}`}>
         {child}
       </main>
     );
@@ -38,8 +36,15 @@ export const LayoutWithSidebar = ({
 
   return (
     <div className="layout">
+      <div className="menu">
+        <SvgIcon
+          iconName="icon-menu"
+          iconColor="#fff"
+          iconClick={layoutAction}
+        />
+      </div>
       {Children.map(children, child => {
-        return child.props.className === "section-sidebar"
+        return child.props.className === 'section-sidebar'
           ? renderSidebar(child)
           : renderContent(child);
       })}

@@ -3,8 +3,21 @@
 .layout {
   position: relative;
 
+  /* Hamburger menu trigger */
+  .menu {
+    position: fixed;
+    background: black;
+    opacity: 0.4;
+    padding: 12px;
+    border-radius: 50%;
+    top: 16px;
+    left: 16px;
+  }
+
+  /* Sideba logical container */
   .sidebar-container {
     position: fixed;
+    z-index: 10;
     top: 0px;
     left: 0px;
     width: 280px;
@@ -30,26 +43,29 @@
     }
 
     &.narrow {
+      display: flex;
+      align-items: center;
       width: 80px;
+      background-image: none;
   
-      .login {	
-        justify-content: center;
+      // .login {	
+      //   display: none;
+      //   justify-content: center;
       
-        p {
-          display: none
-        }
-      }
+      //   p {
+      //     display: none
+      //   }
+      // }
     }
 
   }
 
-  .page-content {
-    margin-left: 280px;
-    transition: all ease-out .4s;
-
-    &.narrow {
-      margin-left: 80px;
-      transition: all ease-out .4s;
+  @media screen and (max-width: 992px) {
+    .sidebar-container {
+      &.narrow {
+        display: none;
+        background-color: transparent
+      }
     }
   }
 }
