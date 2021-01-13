@@ -48,3 +48,15 @@ section {
     }
   }  
 }
+
+@media screen and (max-width: 992px) {
+  section {
+    padding: 48px 10px;
+
+    .header-section{
+      h2{
+        padding: 0px 15px;
+      }
+    }
+  }
+}

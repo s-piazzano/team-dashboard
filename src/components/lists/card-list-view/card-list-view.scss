@@ -30,4 +30,10 @@
 		display: none;
 	}
 
-}
+
+
+	@media screen and (max-width: 992px) {
+		.slider {
+			min-width: 330px;
+		}
+	}}
