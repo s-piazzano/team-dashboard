@@ -14,8 +14,9 @@ export const SidebarMenu = ({
   handleMenuSelection,
 }: any) => {
   const logoUrl =
-    'https://previews.123rf.com/images/mamanamsai/mamanamsai1511/mamanamsai151100435/48391186-progettazione-di-ingranaggi-concetto-arcobaleno-vettore-pulito.jpg'; /* 'https://picsum.photos/300/200' */
-  const title = 'RainbowTech';
+    'https://media-exp1.licdn.com/dms/image/C4D03AQGUuFcXdnGhjQ/profile-displayphoto-shrink_800_800/0/1523742691669?e=1616025600&v=beta&t=2EZYqR0Ps0lU0fO7yPPmO9kxINeN5GuxZmC1bNBWMCA'; /* 'https://picsum.photos/300/200' */
+  /* 'https://previews.123rf.com/images/mamanamsai/mamanamsai1511/mamanamsai151100435/48391186-progettazione-di-ingranaggi-concetto-arcobaleno-vettore-pulito.jpg'; */ const title =
+    'Marco';
   const subtitle = 'Where code happens';
 
   return (

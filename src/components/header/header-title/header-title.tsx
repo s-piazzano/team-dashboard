@@ -17,7 +17,7 @@ export const HeaderTitle = ({ logoUrl, title, subtitle, mode }: any) => {
       {isExpanded ? (
         <div className="title">
           <h3>{title}</h3>
-          <p>{subtitle}</p>
+          {/* <p>{subtitle}</p> */}
         </div>
       ) : null}
     </div>
