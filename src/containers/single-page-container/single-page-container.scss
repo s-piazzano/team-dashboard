@@ -97,6 +97,17 @@ section {
       }
     }
 
+    // hide members description on mobile devices 
+    &:nth-child(2) {
+      &.section-body {
+        .header-section {
+          p {
+            display: none;
+          }
+        }
+      }
+    }
+
     .header-section{
       h2{
         padding: 0px 15px;

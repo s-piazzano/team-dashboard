@@ -23,7 +23,7 @@ export const CardListView = ({
           className={`slider ${sidebarIsOpen ? 'narrow' : ''}`}
           ref={sliderRef}
         >
-          {/* <SvgIcon
+          <SvgIcon
             iconColor="#fff"
             iconName="icon-arrow-left2"
             iconClick={() => addSpace(-200)}
@@ -33,7 +33,7 @@ export const CardListView = ({
               borderRadius: '50%',
               top: '50%',
             }}
-          /> */}
+          />
           {cards.map(({ type, ...rest }: any, i: number) => {
             return (
               <div className="card-wrapper" key={i}>
@@ -45,7 +45,7 @@ export const CardListView = ({
               </div>
             );
           })}
-          {/* <SvgIcon
+          <SvgIcon
             iconColor="#fff"
             iconName="icon-arrow-right2"
             iconClick={() => addSpace(200)}
@@ -55,7 +55,7 @@ export const CardListView = ({
               borderRadius: '50%',
               top: '50%',
             }}
-          /> */}
+          />
         </div>
       ) : (
         cards.map(({ type, ...rest }: any, i: number) => {

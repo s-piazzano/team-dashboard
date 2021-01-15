@@ -33,6 +33,10 @@
     margin: 0;
     padding: 0;
   }
+
+  p{
+    font-size: 14px;
+  }
   
   .card-title {
     margin-bottom: 0.5rem;
@@ -47,6 +51,14 @@
   .card-body{
     padding: 15px 10px;
     height: auto;
+
+    p {
+      display: -webkit-box;
+      // max-width: 200px;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+  }
   }
   
   .btn{

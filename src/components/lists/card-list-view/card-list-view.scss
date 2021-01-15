@@ -17,7 +17,7 @@
 		display: flex;
     overflow-x: auto;
     overflow-y: hidden;
-    max-width: calc(100vw - 180px);
+	max-width: calc(100vw - 330px);
     margin-left: 40px;
 		margin-right: 40px;
 
@@ -35,5 +35,14 @@
 	@media screen and (max-width: 992px) {
 		.slider {
 			min-width: 330px;
+			
+			.icon-arrow-left2{
+				display: none;
+			}
+
+			.icon-arrow-right2{
+				display: none;
+			}
 		}
+
 	}}
