@@ -1,0 +1,9 @@
+.svg-icon {
+  opacity: 1;
+  transition: all 0.8s;
+  
+  &:active {
+    opacity: 0.4;
+    transition: 0s;
+  }
+}

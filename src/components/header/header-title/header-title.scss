@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 120px;
+
+  img {
+    border-radius: 50%;
+  }
+
+  .title {
+    text-align: end;
+    margin-left: 4px;
+    
+    h3 {
+      margin: 0px;
+      font-weight: bold;
+      font-size: 24px;
+    }
+
+    p {
+      margin: 0px;
+      margin-top: 8px ;
+      font-size: 12px;
+    }
+  }
+}
